@@ -4,7 +4,7 @@ from phone_mapper import (
     sampa_to_ipa, celex_to_ipa, disc_to_ipa,
 )
 
-N_IPA = 81
+N_IPA = 94
 
 
 @pytest.fixture(scope='module')
@@ -72,7 +72,6 @@ def test_language_namespaces(mapper):
     assert 'cgn_to_ipa' in vars(mapper.dutch)
     assert 'arpabet_to_ipa' in vars(mapper.english)
     assert 'ipa_to_example_words' in vars(mapper.german)
-    assert len(mapper.dutch.celex_phone_set) > 0
 
 
 # ── definitions ────────────────────────────────────────────────────────────

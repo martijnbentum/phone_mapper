@@ -92,45 +92,6 @@ def counts(mapper=None):
     }
 
 
-def validate(mapper=None):
-    '''Check mapping invariants, return a list of problem descriptions.'''
-    if not mapper: mapper = Mapper()
-    problems = []
-    pairs = [
-        ('sampa', mapper.sampa_to_ipa, mapper.ipa_to_sampa),
-        ('celex', mapper.celex_to_ipa, mapper.ipa_to_celex),
-        ('disc', mapper.disc_to_ipa, mapper.ipa_to_disc),
-        ('cgn', mapper.dutch.cgn_to_ipa, mapper.dutch.ipa_to_cgn),
-    ]
-    for name, fwd, inv in pairs:
-        for symbol, ipa in fwd.items():
-            if inv.get(ipa) != symbol:
-                problems.append(
-                    f'{name}: {symbol} -> {ipa} -> {inv.get(ipa)}')
-        for ipa, symbol in inv.items():
-            if fwd.get(symbol) != ipa:
-                problems.append(
-                    f'{name} inverse: {ipa} -> {symbol} -> {fwd.get(symbol)}')
-    for ipa in mapper.ipa_set:
-        if ipa not in ipa_to_definition:
-            problems.append(f'no definition for {ipa}')
-    english = mapper.english
-    for ipa, arpabet in english.ipa_to_arpabet.items():
-        if arpabet not in english.arpabet_to_ipa:
-            problems.append(f'unknown arpabet code {arpabet} for {ipa}')
-    for arpabet, disc in english.arpabet_to_disc.items():
-        if arpabet not in english.arpabet_to_ipa:
-            problems.append(f'arpabet_to_disc: unknown code {arpabet}')
-        if disc not in mapper.disc_to_ipa:
-            problems.append(f'arpabet_to_disc: unknown disc {disc}')
-    for disc, arpabet in english.disc_to_arpabet.items():
-        if disc not in mapper.disc_to_ipa:
-            problems.append(f'disc_to_arpabet: unknown disc {disc}')
-        if arpabet not in english.arpabet_to_ipa:
-            problems.append(f'disc_to_arpabet: unknown code {arpabet}')
-    return problems
-
-
 def show(mapper=None):
     '''Print IPA/SAMPA/CELEX/DISC/CGN side by side, one phoneme per row.'''
     if not mapper: mapper = Mapper()

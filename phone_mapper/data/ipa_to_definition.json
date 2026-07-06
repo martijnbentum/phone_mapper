@@ -79,5 +79,18 @@
   "æ̃": "nasalized near-open front unrounded vowel",
   "ɑ̃ː": "nasalized open back unrounded vowel long",
   "æ̃ː": "nasalized near-open front unrounded vowel long",
-  "ɒ̃ː": "nasalized open back rounded vowel long"
+  "ɒ̃ː": "nasalized open back rounded vowel long",
+  "i": "close front unrounded vowel",
+  "u": "close back rounded vowel",
+  "ɨ": "close central unrounded vowel",
+  "ɹ": "voiced alveolar approximant",
+  "ɾ": "voiced alveolar tap",
+  "ɾ̃": "nasalized voiced alveolar tap",
+  "ʔ": "glottal plosive",
+  "ʍ": "voiceless labial-velar fricative",
+  "ɝ": "rhotacized open-mid central unrounded vowel",
+  "ɚ": "rhotacized mid central vowel",
+  "oʊ": "close-mid back to near-close near-back diphthong",
+  "ɑɹ": "open back unrounded vowel with rhotic offglide",
+  "ɔ̃": "nasalized open-mid back rounded vowel"
 }

@@ -49,6 +49,13 @@ show()                   # print IPA/SAMPA/CELEX/DISC/CGN side by side
 
 ## Data
 
+The `celex` and `disc` mappings both come from the CELEX lexical
+database: `celex` is CELEX's SAM-PA variant (close to SAMPA, with nine
+vowel symbols of its own), while DISC is CELEX's compact alphabet that
+encodes every phoneme as a single character. DISC is shared by the
+Dutch, English, and German CELEX lexicons, so it lives at the top
+level, not in a language folder.
+
 All mappings live in JSON files under `phone_mapper/data/`, one mapping
 per file. A bidirectional file named `x_to_y.json` stores exactly two
 dicts under the keys `x_to_y` and `y_to_x` (for example `disc_to_ipa.json`

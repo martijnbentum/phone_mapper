@@ -7,8 +7,8 @@ from .mapper import (
     ipa_to_definition,
     sampa_to_ipa,
     show,
-    validate,
 )
+from .validate import validate
 
 __all__ = [
     'Mapper',
