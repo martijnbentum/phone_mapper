@@ -25,7 +25,7 @@ class Mapper:
         self._add_coolest()
 
     def _load_cgn(self):
-        cgn_fwd, cgn_inv = _load_both('dutch/cgn_to_ipa.json')
+        cgn_fwd, cgn_inv = _load_mapping_pair('dutch/cgn_to_ipa.json')
         self.cgn_to_ipa = cgn_fwd
         self.ipa_to_cgn = cgn_inv
         self.cgn_set = list(cgn_fwd.keys())
@@ -34,13 +34,14 @@ class Mapper:
         self.arpabet_to_ipa = dict(arpabet_to_ipa)
         self.ipa_to_arpabet = dict(ipa_to_arpabet)
         self.arpabet_to_example_words = dict(arpabet_to_example_words)
-        arpabet_fwd, arpabet_inv = _load_both('english/arpabet_to_disc.json')
+        arpabet_fwd, arpabet_inv = _load_mapping_pair(
+            'english/arpabet_to_disc.json')
         self.arpabet_to_disc = arpabet_fwd
         self.disc_to_arpabet = arpabet_inv
 
     def _add_baldey(self):
         '''Add Baldey textgrid phoneme set (restricted CGN-based set).'''
-        baldey_fwd, baldey_inv = _load_both('dutch/baldey_to_ipa.json')
+        baldey_fwd, baldey_inv = _load_mapping_pair('dutch/baldey_to_ipa.json')
         self.baldey_to_ipa = baldey_fwd
         self.ipa_to_baldey = baldey_inv
         self.baldey_to_disc = {b: self.ipa_to_disc[i]
@@ -50,18 +51,18 @@ class Mapper:
 
     def _add_coolest(self):
         '''Add COOLEST textgrid phoneme set.'''
-        coolest_fwd, _ = _load_both('dutch/coolest_to_ipa.json')
+        coolest_fwd, _ = _load_mapping_pair('dutch/coolest_to_ipa.json')
         self.coolest_to_ipa = coolest_fwd
         self.coolest_textgrid_phoneme_set = list(coolest_fwd.keys())
 
 
-def _load(path):
+def _load_json(path):
     return json.loads((_DATA / path).read_text())
 
 
-def _load_both(path):
+def _load_mapping_pair(path):
     '''Load a JSON file with named forward and inverse mapping dicts.'''
-    data = _load(path)
+    data = _load_json(path)
     forward = Path(path).stem
     a, b = forward.split('_to_')
     inverse = f'{b}_to_{a}'
@@ -69,25 +70,25 @@ def _load_both(path):
 
 
 # ── public data ────────────────────────────────────────────────────────────
-ipa_to_definition = _load('ipa_to_definition.json')
+ipa_to_definition = _load_json('ipa_to_definition.json')
 ipa_set = list(ipa_to_definition.keys())
 
-sampa_to_ipa, ipa_to_sampa = _load_both('sampa_to_ipa.json')
+sampa_to_ipa, ipa_to_sampa = _load_mapping_pair('sampa_to_ipa.json')
 sampa_set = list(sampa_to_ipa.keys())
 
-celex_to_ipa, ipa_to_celex = _load_both('celex_to_ipa.json')
+celex_to_ipa, ipa_to_celex = _load_mapping_pair('celex_to_ipa.json')
 celex_set = list(celex_to_ipa.keys())
 
-disc_to_ipa, ipa_to_disc = _load_both('disc_to_ipa.json')
+disc_to_ipa, ipa_to_disc = _load_mapping_pair('disc_to_ipa.json')
 disc_set = list(disc_to_ipa.keys())
 
-celex_dutch_phoneme_set = _load('dutch/celex_phone_set.json')
+celex_dutch_phoneme_set = _load_json('dutch/celex_phone_set.json')
 
-ipa_to_example_words_dutch = _load('dutch/ipa_to_example_words.json')
-ipa_to_example_words_english = _load('english/ipa_to_example_words.json')
-ipa_to_example_words_german = _load('german/ipa_to_example_words.json')
+ipa_to_example_words_dutch = _load_json('dutch/ipa_to_example_words.json')
+ipa_to_example_words_english = _load_json('english/ipa_to_example_words.json')
+ipa_to_example_words_german = _load_json('german/ipa_to_example_words.json')
 
-_arpabet = _load('english/arpabet_to_ipa.json')
+_arpabet = _load_json('english/arpabet_to_ipa.json')
 arpabet_to_ipa = _arpabet['arpabet_to_ipa']
 ipa_to_arpabet = _arpabet['ipa_to_arpabet']
 arpabet_to_example_words = _arpabet['arpabet_to_example_words']
