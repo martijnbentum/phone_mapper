@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phone_mapper"
+version = "0.1.1"
+description = "Phoneme mapping between IPA, SAMPA, CELEX, DISC, CGN, and ARPAbet"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.setuptools]
+packages = ["phone_mapper"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
