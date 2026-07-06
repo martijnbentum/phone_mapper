@@ -5,10 +5,12 @@ _DATA = Path(__file__).parent / 'data'
 
 
 class Mapper:
-    '''Map phonemes between IPA, SAMPA, CELEX, DISC, CGN, ARPAbet,
-    Baldey, and COOLEST transcription systems.
+    '''Map phonemes between the IPA, SAMPA, CELEX, DISC, and ARPAbet
+    transcription systems.
     General mappings are attributes; language-specific mappings live in
-    the dutch, english, and german sub-namespaces.
+    the dutch, english, and german sub-namespaces. Dataset-specific
+    phoneme sets (CGN, Baldey, COOLEST, diphone) live in their own
+    modules.
     '''
     def __init__(self):
         self.ipa_set = list(ipa_set)
@@ -89,13 +91,14 @@ disc_set = list(disc_to_ipa.keys())
 
 def counts(mapper=None):
     '''Return entry counts for the main phoneme sets.'''
+    from .cgn import cgn_to_ipa
     if not mapper: mapper = Mapper()
     return {
         'ipa_set': len(mapper.ipa_set),
         'sampa_set': len(mapper.sampa_set),
         'celex_set': len(mapper.celex_set),
         'disc_set': len(mapper.disc_set),
-        'cgn_set': len(mapper.dutch.cgn_to_ipa),
+        'cgn_set': len(cgn_to_ipa),
     }
 
 
@@ -103,12 +106,13 @@ def show(mapper=None):
     '''Print IPA/SAMPA/CELEX/DISC/CGN/ARPAbet side by side, one phoneme
     per row.
     '''
+    from .cgn import ipa_to_cgn
     if not mapper: mapper = Mapper()
     for ipa in mapper.ipa_set:
         sampa = mapper.ipa_to_sampa.get(ipa, '')
         celex = mapper.ipa_to_celex.get(ipa, '')
         disc  = mapper.ipa_to_disc.get(ipa, '')
-        cgn   = mapper.dutch.ipa_to_cgn.get(ipa, '')
+        cgn   = ipa_to_cgn.get(ipa, '')
         arpabet = mapper.english.ipa_to_arpabet.get(ipa, '')
         row = [str(x).ljust(6)
             for x in (ipa, sampa, celex, disc, cgn, arpabet)]

@@ -5,20 +5,23 @@ from .mapper import Mapper, ipa_to_definition
 
 def validate(mapper=None):
     '''Check mapping invariants, return a list of problem descriptions.'''
+    from . import baldey, cgn, coolest
     if not mapper: mapper = Mapper()
     problems = []
     pairs = [
         ('sampa', mapper.sampa_to_ipa, mapper.ipa_to_sampa),
         ('celex', mapper.celex_to_ipa, mapper.ipa_to_celex),
         ('disc', mapper.disc_to_ipa, mapper.ipa_to_disc),
-        ('cgn', mapper.dutch.cgn_to_ipa, mapper.dutch.ipa_to_cgn),
+        ('cgn', cgn.cgn_to_ipa, cgn.ipa_to_cgn),
     ]
     for name, forward, inverse in pairs:
         problems += _check_bijection(name, forward, inverse)
     problems += [f'no definition for {ipa}'
         for ipa in mapper.ipa_set if ipa not in ipa_to_definition]
-    for language in (mapper.dutch, mapper.english, mapper.german):
-        problems += _check_language(language, mapper.disc_to_ipa)
+    namespaces = (mapper.dutch, mapper.english, mapper.german,
+        cgn, baldey, coolest)
+    for namespace in namespaces:
+        problems += _check_namespace(namespace, mapper.disc_to_ipa)
     return problems
 
 
@@ -35,8 +38,9 @@ def _check_bijection(name, forward, inverse):
     return problems
 
 
-def _check_language(language, disc_to_ipa):
-    '''Check mapping pairs and symbol domains for one language namespace.
+def _check_namespace(namespace, disc_to_ipa):
+    '''Check mapping pairs and symbol domains for one namespace
+    (a Language or a dataset module).
 
     Pair check: every value of x_to_y must be a key of y_to_x when that
     inverse exists. This tolerates aliases (two symbols mapping to the
@@ -46,14 +50,14 @@ def _check_language(language, disc_to_ipa):
     to that system's inventory.
     '''
     problems = []
-    mappings = {name: value for name, value in vars(language).items()
+    mappings = {name: value for name, value in vars(namespace).items()
         if isinstance(value, dict) and '_to_' in name}
     for name, mapping in mappings.items():
         parts = name.split('_to_')
         if len(parts) != 2:
             continue
         source, target = parts
-        label = f'{language.name}.{name}'
+        label = f'{namespace.name}.{name}'
         inverse_name = f'{target}_to_{source}'
         inverse = mappings.get(inverse_name)
         if inverse is not None:

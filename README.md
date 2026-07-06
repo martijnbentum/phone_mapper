@@ -27,13 +27,25 @@ mapper.ipa_to_sampa['tʃ']       # 'tS'
 mapper.celex_to_ipa['w']        # 'ʋ' (w is realised as ʋ in Dutch)
 
 # Language-specific mappings live in per-language namespaces:
-mapper.dutch.cgn_to_ipa['A~']                  # 'ɑ̃ː'
 mapper.dutch.ipa_to_example_words['p']         # 'put'
 mapper.english.arpabet_to_disc['AA']           # 'A'
 mapper.english.arpabet_to_example_words['IY']  # 'b(ea)t'
 
 # A namespace's repr lists the mappings it provides:
 mapper.german   # <Language german: ipa_to_example_words>
+```
+
+Dataset-specific phoneme sets (CGN, Baldey, COOLEST, diphone) are tied
+to particular corpora or experiments rather than general transcription
+standards, so each lives in its own module:
+
+```python
+from phone_mapper import baldey, cgn, coolest, diphone
+
+cgn.cgn_to_ipa['A~']            # 'ɑ̃ː'
+baldey.baldey_to_disc['A+']     # 'M'
+coolest.coolest_to_ipa['i']     # 'iː'
+diphone.to_ipa['sh']            # 'ʃ'
 ```
 
 Module-level helpers:
@@ -63,12 +75,14 @@ holds `disc_to_ipa` and `ipa_to_disc`); the loader derives the key names
 from the filename.
 
 The `Mapper` mirrors the folder layout. Files directly in `data/` become
-the general top-level mappings; each subfolder (`data/dutch/`,
+the general top-level mappings; each language subfolder (`data/dutch/`,
 `data/english/`, `data/german/`) becomes a `Language` namespace holding
-that language's mappings (CGN, Baldey, COOLEST, ARPAbet, example words),
-with every JSON file exposed as attributes named after the file. Adding
-a language means adding a folder of JSON files and one line in
-`Mapper.__init__`.
+that language's mappings (ARPAbet, example words), with every JSON file
+exposed as attributes named after the file. Adding a language means
+adding a folder of JSON files and one line in `Mapper.__init__`.
+
+Dataset folders (`data/cgn/`, `data/baldey/`, `data/coolest/`) are
+loaded by their corresponding modules, not by the `Mapper`.
 
 ## Development
 
