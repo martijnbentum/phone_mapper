@@ -1,7 +1,14 @@
 # Baldey and COOLEST alias entries
 
+Baldey and COOLEST are not general transcription standards: they are
+idiosyncratic phoneme sets tied to specific datasets (the Baldey
+dataset's textgrids, a restricted CGN-based set, and the COOLEST
+dataset's textgrids). Their symbol choices follow those datasets'
+internal conventions rather than standard phonetic notation, so the
+aliases documented below may simply be how the datasets are annotated.
+
 Data quirks found during the 2026-07-06 repo review. To be confirmed
-against the source textgrids before `validate()` is extended to cover
+against the source textgrids before `validate()` is tightened for
 these mappings.
 
 ## Background: forward and inverse dicts

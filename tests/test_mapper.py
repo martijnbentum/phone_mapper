@@ -142,6 +142,16 @@ def test_validate_no_problems(mapper):
     assert validate(mapper) == []
 
 
+def test_validate_reports_problems():
+    m = Mapper()
+    m.dutch.cgn_to_ipa['zz'] = 'not-ipa'
+    m.english.arpabet_to_disc['QQ'] = '??'
+    problems = validate(m)
+    assert any('zz' in p for p in problems)
+    assert any('QQ' in p for p in problems)
+    assert any('??' in p for p in problems)
+
+
 def test_instances_are_isolated():
     m1, m2 = Mapper(), Mapper()
     m1.english.arpabet_to_ipa['ZZ'] = 'test'

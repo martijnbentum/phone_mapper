@@ -3,8 +3,10 @@ from pathlib import Path
 
 _DATA = Path(__file__).parent / 'data'
 
+
 class Mapper:
-    '''Map phonemes between IPA, SAMPA, CELEX, DISC, CGN, and ARPAbet.
+    '''Map phonemes between IPA, SAMPA, CELEX, DISC, CGN, ARPAbet,
+    Baldey, and COOLEST transcription systems.
     General mappings are attributes; language-specific mappings live in
     the dutch, english, and german sub-namespaces.
     '''
@@ -35,10 +37,12 @@ class Language:
             self._add(path)
 
     def _add(self, path):
-        data = json.loads(path.read_text())
+        data = _load_json(path.relative_to(_DATA))
         stem = path.stem
         if isinstance(data, dict) and stem in data:
             forward, inverse = _mapping_pair_keys(stem)
+            if inverse not in data:
+                raise ValueError(f'{path.name} is missing the {inverse} dict')
             setattr(self, forward, data[forward])
             setattr(self, inverse, data[inverse])
         else:
@@ -55,7 +59,10 @@ def _load_json(path):
 
 def _mapping_pair_keys(stem):
     '''Return the forward and inverse dict names for a mapping file stem.'''
-    a, b = stem.split('_to_')
+    parts = stem.split('_to_')
+    if len(parts) != 2:
+        raise ValueError(f'cannot derive an inverse name from {stem!r}')
+    a, b = parts
     return stem, f'{b}_to_{a}'
 
 
@@ -93,12 +100,16 @@ def counts(mapper=None):
 
 
 def show(mapper=None):
-    '''Print IPA/SAMPA/CELEX/DISC/CGN side by side, one phoneme per row.'''
+    '''Print IPA/SAMPA/CELEX/DISC/CGN/ARPAbet side by side, one phoneme
+    per row.
+    '''
     if not mapper: mapper = Mapper()
     for ipa in mapper.ipa_set:
         sampa = mapper.ipa_to_sampa.get(ipa, '')
         celex = mapper.ipa_to_celex.get(ipa, '')
         disc  = mapper.ipa_to_disc.get(ipa, '')
         cgn   = mapper.dutch.ipa_to_cgn.get(ipa, '')
-        row = [str(x).ljust(6) for x in (ipa, sampa, celex, disc, cgn)]
+        arpabet = mapper.english.ipa_to_arpabet.get(ipa, '')
+        row = [str(x).ljust(6)
+            for x in (ipa, sampa, celex, disc, cgn, arpabet)]
         print('\t'.join(row))

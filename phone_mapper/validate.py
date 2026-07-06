@@ -1,6 +1,6 @@
 '''Integrity checks for the mapping data shipped with phone_mapper.'''
 
-from .mapper import Mapper, _mapping_pair_keys, ipa_to_definition
+from .mapper import Mapper, ipa_to_definition
 
 
 def validate(mapper=None):
@@ -49,14 +49,17 @@ def _check_language(language, disc_to_ipa):
     mappings = {name: value for name, value in vars(language).items()
         if isinstance(value, dict) and '_to_' in name}
     for name, mapping in mappings.items():
+        parts = name.split('_to_')
+        if len(parts) != 2:
+            continue
+        source, target = parts
         label = f'{language.name}.{name}'
-        inverse_name = _mapping_pair_keys(name)[1]
+        inverse_name = f'{target}_to_{source}'
         inverse = mappings.get(inverse_name)
         if inverse is not None:
             problems += [
                 f'{label}: {symbol} -> {value} missing from {inverse_name}'
                 for symbol, value in mapping.items() if value not in inverse]
-        source, target = name.split('_to_')
         source_domain = _domain(source, mappings, disc_to_ipa)
         if source_domain is not None:
             problems += [f'{label}: unknown {source} symbol {symbol}'
