@@ -5,7 +5,7 @@ from .mapper import Mapper, ipa_to_definition
 
 def validate(mapper=None):
     '''Check mapping invariants, return a list of problem descriptions.'''
-    from . import baldey, cgn, coolest
+    from . import arpabet, baldey, cgn, coolest
     if not mapper: mapper = Mapper()
     problems = []
     pairs = [
@@ -18,10 +18,11 @@ def validate(mapper=None):
         problems += _check_bijection(name, forward, inverse)
     problems += [f'no definition for {ipa}'
         for ipa in mapper.ipa_set if ipa not in ipa_to_definition]
-    namespaces = (mapper.dutch, mapper.english, mapper.german,
-        cgn, baldey, coolest)
-    for namespace in namespaces:
+    for namespace in (arpabet, baldey, cgn, coolest):
         problems += _check_namespace(namespace, mapper.disc_to_ipa)
+    for language, words in mapper.ipa_to_example_words.items():
+        problems += [f'example words {language}: unknown ipa {ipa}'
+            for ipa in words if ipa not in ipa_to_definition]
     return problems
 
 

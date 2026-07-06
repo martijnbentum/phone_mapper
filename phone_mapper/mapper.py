@@ -5,12 +5,10 @@ _DATA = Path(__file__).parent / 'data'
 
 
 class Mapper:
-    '''Map phonemes between the IPA, SAMPA, CELEX, DISC, and ARPAbet
-    transcription systems.
-    General mappings are attributes; language-specific mappings live in
-    the dutch, english, and german sub-namespaces. Dataset-specific
-    phoneme sets (CGN, Baldey, COOLEST, diphone) live in their own
-    modules.
+    '''Map phonemes between the IPA, SAMPA, CELEX, and DISC
+    transcription systems, with example words per language.
+    Language- and dataset-specific phoneme sets (ARPAbet, CGN, Baldey,
+    COOLEST, diphone) live in their own modules.
     '''
     def __init__(self):
         self.ipa_set = list(ipa_set)
@@ -23,36 +21,8 @@ class Mapper:
         self.celex_to_ipa = dict(celex_to_ipa)
         self.ipa_to_disc = dict(ipa_to_disc)
         self.disc_to_ipa = dict(disc_to_ipa)
-        self.dutch = Language('dutch')
-        self.english = Language('english')
-        self.german = Language('german')
-
-
-class Language:
-    '''Namespace for the language-specific mappings in one data folder.
-    Each JSON file becomes attributes named after its stem; a file
-    named x_to_y.json provides both the x_to_y and y_to_x dicts.
-    '''
-    def __init__(self, name):
-        self.name = name
-        for path in sorted((_DATA / name).glob('*.json')):
-            self._add(path)
-
-    def _add(self, path):
-        data = _load_json(path.relative_to(_DATA))
-        stem = path.stem
-        if isinstance(data, dict) and stem in data:
-            forward, inverse = _mapping_pair_keys(stem)
-            if inverse not in data:
-                raise ValueError(f'{path.name} is missing the {inverse} dict')
-            setattr(self, forward, data[forward])
-            setattr(self, inverse, data[inverse])
-        else:
-            setattr(self, stem, data)
-
-    def __repr__(self):
-        names = [k for k in vars(self) if k != 'name']
-        return f'<Language {self.name}: {", ".join(names)}>'
+        self.ipa_to_example_words = {language: dict(words)
+            for language, words in ipa_to_example_words.items()}
 
 
 def _load_json(path):
@@ -88,6 +58,8 @@ celex_set = list(celex_to_ipa.keys())
 disc_to_ipa, ipa_to_disc = _load_mapping_pair('disc_to_ipa.json')
 disc_set = list(disc_to_ipa.keys())
 
+ipa_to_example_words = _load_json('ipa_to_example_words.json')
+
 
 def counts(mapper=None):
     '''Return entry counts for the main phoneme sets.'''
@@ -106,6 +78,7 @@ def show(mapper=None):
     '''Print IPA/SAMPA/CELEX/DISC/CGN/ARPAbet side by side, one phoneme
     per row.
     '''
+    from .arpabet import ipa_to_arpabet
     from .cgn import ipa_to_cgn
     if not mapper: mapper = Mapper()
     for ipa in mapper.ipa_set:
@@ -113,7 +86,7 @@ def show(mapper=None):
         celex = mapper.ipa_to_celex.get(ipa, '')
         disc  = mapper.ipa_to_disc.get(ipa, '')
         cgn   = ipa_to_cgn.get(ipa, '')
-        arpabet = mapper.english.ipa_to_arpabet.get(ipa, '')
+        arpabet = ipa_to_arpabet.get(ipa, '')
         row = [str(x).ljust(6)
             for x in (ipa, sampa, celex, disc, cgn, arpabet)]
         print('\t'.join(row))
