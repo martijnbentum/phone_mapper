@@ -88,10 +88,9 @@ ipa_to_example_words_dutch = _load_json('dutch/ipa_to_example_words.json')
 ipa_to_example_words_english = _load_json('english/ipa_to_example_words.json')
 ipa_to_example_words_german = _load_json('german/ipa_to_example_words.json')
 
-_arpabet = _load_json('english/arpabet_to_ipa.json')
-arpabet_to_ipa = _arpabet['arpabet_to_ipa']
-ipa_to_arpabet = _arpabet['ipa_to_arpabet']
-arpabet_to_example_words = _arpabet['arpabet_to_example_words']
+arpabet_to_ipa, ipa_to_arpabet = _load_mapping_pair(
+    'english/arpabet_to_ipa.json')
+arpabet_to_example_words = _load_json('english/arpabet_to_example_words.json')
 
 
 

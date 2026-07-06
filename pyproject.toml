@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phone_mapper"
-version = "0.1.6"
+version = "0.1.7"
 description = "Phoneme mapping between IPA, SAMPA, CELEX, DISC, CGN, and ARPAbet"
 readme = "README.md"
 license = "MIT"
