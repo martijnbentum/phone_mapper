@@ -181,9 +181,6 @@ def show(mapper=None):
 
 
 # Convenience lookups
-_default_mapper = Mapper()
-disc_to_ipa = _default_mapper.disc_to_ipa
-
 to_ipa_org = {disc: disc_to_ipa[disc] for disc in phonemes}
 to_ipa_org['-'] = to_ipa_org['_']
 to_ipa_rew = {rewrite_dict.get(k, k): v for k, v in to_ipa_org.items()}
