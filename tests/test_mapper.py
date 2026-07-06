@@ -1,8 +1,10 @@
 import pytest
 from phone_mapper import (
-    Mapper, ipa_set, ipa_to_definition, validate, to_ipa,
+    Mapper, counts, ipa_set, ipa_to_definition, validate, to_ipa,
     sampa_to_ipa, celex_to_ipa, disc_to_ipa,
 )
+
+N_IPA = 81
 
 
 @pytest.fixture(scope='module')
@@ -17,7 +19,7 @@ def test_mapper_instantiates(mapper):
 
 
 def test_ipa_set_length():
-    assert len(ipa_set) == 81
+    assert len(ipa_set) == N_IPA
 
 
 # ── roundtrips ─────────────────────────────────────────────────────────────
@@ -65,14 +67,15 @@ def test_cgn_nasals_parfum(mapper):
     assert mapper.cgn_to_ipa['Y~'] == 'œ̃'
 
 
-def test_cgn_length(mapper):
-    assert len(ipa_set) == 81
+def test_cgn_set_matches_mapping(mapper):
+    assert mapper.cgn_set == list(mapper.cgn_to_ipa.keys())
+    assert len(mapper.cgn_set) > 0
 
 
 # ── definitions ────────────────────────────────────────────────────────────
 
 def test_ipa_to_definition_coverage():
-    assert len(ipa_to_definition) == 81
+    assert len(ipa_to_definition) == N_IPA
 
 
 def test_ipa_to_definition_sample():
@@ -96,7 +99,11 @@ def test_coolest_to_ipa(mapper):
 
 
 def test_arpabet_to_disc(mapper):
-    assert 'AA' in mapper.arpabet_to_disc
+    assert mapper.arpabet_to_disc['AA'] == 'A'
+    assert mapper.arpabet_to_disc['M'] == 'm'
+    assert mapper.arpabet_to_disc['NG'] == 'N'
+    assert mapper.arpabet_to_disc['EN'] == 'H'
+    assert mapper.disc_to_arpabet['C'] == 'NG'
 
 
 def test_arpabet_example_words(mapper):
@@ -117,11 +124,27 @@ def test_example_words_german(mapper):
 
 # ── module-level lookups ───────────────────────────────────────────────────
 
-def test_validate_counts(mapper):
-    counts = validate(mapper)
-    assert counts['ipa_set'] == 81
-    assert counts['sampa_set'] > 0
-    assert counts['cgn_set'] > 0
+def test_counts(mapper):
+    result = counts(mapper)
+    assert result['ipa_set'] == N_IPA
+    assert result['sampa_set'] > 0
+    assert result['cgn_set'] > 0
+
+
+def test_validate_no_problems(mapper):
+    assert validate(mapper) == []
+
+
+def test_validate_non_dutch():
+    assert validate(Mapper(language='english')) == []
+
+
+def test_instances_are_isolated():
+    m1, m2 = Mapper(), Mapper()
+    m1.arpabet_to_ipa['ZZ'] = 'test'
+    m1.ipa_to_example_words_dutch['zz'] = 'test'
+    assert 'ZZ' not in m2.arpabet_to_ipa
+    assert 'zz' not in m2.ipa_to_example_words_dutch
 
 
 def test_to_ipa_lookup():

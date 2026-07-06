@@ -9,10 +9,12 @@ def _load(path):
 
 
 def _load_both(path):
-    '''Load a JSON file containing two directional dicts, return as a tuple.'''
+    '''Load a JSON file with named forward and inverse mapping dicts.'''
     data = _load(path)
-    keys = list(data.keys())
-    return data[keys[0]], data[keys[1]]
+    forward = Path(path).stem
+    a, b = forward.split('_to_')
+    inverse = f'{b}_to_{a}'
+    return data[forward], data[inverse]
 
 
 # ── public data ────────────────────────────────────────────────────────────
@@ -59,13 +61,13 @@ class Mapper:
     '''
     def __init__(self, language='dutch'):
         self.language = language
-        self.ipa_set = ipa_set
-        self.sampa_set = sampa_set
-        self.celex_set = celex_set
-        self.disc_set = disc_set
-        self.ipa_to_example_words_dutch = ipa_to_example_words_dutch
-        self.ipa_to_example_words_english = ipa_to_example_words_english
-        self.ipa_to_example_words_german = ipa_to_example_words_german
+        self.ipa_set = list(ipa_set)
+        self.sampa_set = list(sampa_set)
+        self.celex_set = list(celex_set)
+        self.disc_set = list(disc_set)
+        self.ipa_to_example_words_dutch = dict(ipa_to_example_words_dutch)
+        self.ipa_to_example_words_english = dict(ipa_to_example_words_english)
+        self.ipa_to_example_words_german = dict(ipa_to_example_words_german)
         self.ipa_to_sampa = dict(ipa_to_sampa)
         self.sampa_to_ipa = dict(sampa_to_ipa)
         self.ipa_to_celex = dict(ipa_to_celex)
@@ -86,27 +88,12 @@ class Mapper:
         self.cgn_set = list(cgn_fwd.keys())
 
     def _add_arpabet(self):
-        self.arpabet_to_ipa = arpabet_to_ipa
-        self.ipa_to_arpabet = ipa_to_arpabet
-        self.arpabet_to_example_words = arpabet_to_example_words
-        self.arpabet_to_disc = {}
-        self.disc_to_arpabet = {}
-        for ipa, disc in self.ipa_to_disc.items():
-            mapped = ipa
-            if mapped == '*': mapped = 'r'
-            if mapped == 'iː': mapped = 'i'
-            if mapped == 'uː': mapped = 'u'
-            if mapped == 'ɑɪ': mapped = 'ai'
-            if mapped == 'ɑ̃ː': mapped = 'ɑː'
-            if mapped == 'ɒ': mapped = 'ɔ'
-            if mapped == 'ɔ̃': mapped = 'ɔ'
-            if mapped == 'æ̃ː': mapped = 'æ̃'
-            if mapped == 'ŋ̩': mapped = 'ŋ'
-            if mapped not in self.ipa_to_arpabet:
-                continue
-            arpabet = self.ipa_to_arpabet[mapped]
-            self.arpabet_to_disc[arpabet] = disc
-            self.disc_to_arpabet[disc] = arpabet
+        self.arpabet_to_ipa = dict(arpabet_to_ipa)
+        self.ipa_to_arpabet = dict(ipa_to_arpabet)
+        self.arpabet_to_example_words = dict(arpabet_to_example_words)
+        arpabet_fwd, arpabet_inv = _load_both('english/arpabet_to_disc.json')
+        self.arpabet_to_disc = arpabet_fwd
+        self.disc_to_arpabet = arpabet_inv
 
     def _fix_w(self):
         '''Remap /w/ to /ʋ/ for non-Dutch languages.'''
@@ -131,7 +118,7 @@ class Mapper:
         self.coolest_textgrid_phoneme_set = list(coolest_fwd.keys())
 
 
-def validate(mapper=None):
+def counts(mapper=None):
     '''Return entry counts for the main phoneme sets.'''
     if not mapper: mapper = Mapper()
     return {
@@ -141,6 +128,44 @@ def validate(mapper=None):
         'disc_set': len(mapper.disc_set),
         'cgn_set': len(mapper.cgn_set),
     }
+
+
+def validate(mapper=None):
+    '''Check mapping invariants, return a list of problem descriptions.'''
+    if not mapper: mapper = Mapper()
+    problems = []
+    pairs = [
+        ('sampa', mapper.sampa_to_ipa, mapper.ipa_to_sampa),
+        ('celex', mapper.celex_to_ipa, mapper.ipa_to_celex),
+        ('disc', mapper.disc_to_ipa, mapper.ipa_to_disc),
+        ('cgn', mapper.cgn_to_ipa, mapper.ipa_to_cgn),
+    ]
+    for name, fwd, inv in pairs:
+        for symbol, ipa in fwd.items():
+            if inv.get(ipa) != symbol:
+                problems.append(
+                    f'{name}: {symbol} -> {ipa} -> {inv.get(ipa)}')
+        for ipa, symbol in inv.items():
+            if fwd.get(symbol) != ipa:
+                problems.append(
+                    f'{name} inverse: {ipa} -> {symbol} -> {fwd.get(symbol)}')
+    for ipa in mapper.ipa_set:
+        if ipa not in ipa_to_definition:
+            problems.append(f'no definition for {ipa}')
+    for ipa, arpabet in mapper.ipa_to_arpabet.items():
+        if arpabet not in mapper.arpabet_to_ipa:
+            problems.append(f'unknown arpabet code {arpabet} for {ipa}')
+    for arpabet, disc in mapper.arpabet_to_disc.items():
+        if arpabet not in mapper.arpabet_to_ipa:
+            problems.append(f'arpabet_to_disc: unknown code {arpabet}')
+        if disc not in mapper.disc_to_ipa:
+            problems.append(f'arpabet_to_disc: unknown disc {disc}')
+    for disc, arpabet in mapper.disc_to_arpabet.items():
+        if disc not in mapper.disc_to_ipa:
+            problems.append(f'disc_to_arpabet: unknown disc {disc}')
+        if arpabet not in mapper.arpabet_to_ipa:
+            problems.append(f'disc_to_arpabet: unknown code {arpabet}')
+    return problems
 
 
 def show(mapper=None):
