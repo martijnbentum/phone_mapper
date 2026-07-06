@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phone_mapper"
-version = "0.1.13"
-description = "Phoneme mapping between IPA, SAMPA, CELEX, DISC, CGN, and ARPAbet"
+version = "0.1.14"
+description = "Phoneme mapping between IPA, SAMPA, CELEX, DISC, CGN, ARPAbet, Baldey, and COOLEST"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

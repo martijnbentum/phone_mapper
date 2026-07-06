@@ -62,15 +62,18 @@ ipa_to_example_words = _load_json('ipa_to_example_words.json')
 
 
 def counts(mapper=None):
-    '''Return entry counts for the main phoneme sets.'''
-    from .cgn import cgn_to_ipa
+    '''Return entry counts for the phoneme sets.'''
+    from . import arpabet, baldey, cgn, coolest
     if not mapper: mapper = Mapper()
     return {
         'ipa_set': len(mapper.ipa_set),
         'sampa_set': len(mapper.sampa_set),
         'celex_set': len(mapper.celex_set),
         'disc_set': len(mapper.disc_set),
-        'cgn_set': len(cgn_to_ipa),
+        'arpabet_set': len(arpabet.arpabet_to_ipa),
+        'baldey_set': len(baldey.baldey_to_ipa),
+        'cgn_set': len(cgn.cgn_to_ipa),
+        'coolest_set': len(coolest.coolest_to_ipa),
     }
 
 

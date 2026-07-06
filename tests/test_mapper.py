@@ -1,6 +1,6 @@
 import pytest
 from phone_mapper import (
-    Mapper, counts, ipa_set, ipa_to_definition, validate,
+    Mapper, counts, ipa_set, ipa_to_definition, show, validate,
     sampa_to_ipa, celex_to_ipa, disc_to_ipa,
 )
 from phone_mapper import arpabet, baldey, cgn, coolest, diphone
@@ -132,7 +132,17 @@ def test_counts(mapper):
     result = counts(mapper)
     assert result['ipa_set'] == N_IPA
     assert result['sampa_set'] > 0
+    assert result['arpabet_set'] > 0
+    assert result['baldey_set'] > 0
     assert result['cgn_set'] > 0
+    assert result['coolest_set'] > 0
+
+
+def test_show(mapper, capsys):
+    show(mapper)
+    lines = capsys.readouterr().out.splitlines()
+    assert len(lines) == N_IPA
+    assert all(len(line.split('\t')) == 6 for line in lines)
 
 
 def test_validate_no_problems(mapper):

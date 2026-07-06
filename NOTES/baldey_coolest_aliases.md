@@ -27,7 +27,7 @@ deliberate choice.
 
 ## Baldey
 
-`dutch/baldey_to_ipa.json` contains two symbols for each of two
+`baldey/baldey_to_ipa.json` contains two symbols for each of two
 diphthongs:
 
 | Baldey symbol | IPA | named by inverse? |
@@ -50,7 +50,7 @@ Open questions:
 
 ## COOLEST
 
-`dutch/coolest_to_ipa.json` maps both `Y` and `u` to `uː`; the inverse
+`coolest/coolest_to_ipa.json` maps both `Y` and `u` to `uː`; the inverse
 names `u` (`ipa_to_coolest['uː'] == 'u'`), so `Y` does not roundtrip.
 
 `Y` → `uː` is phonetically surprising: Y-like symbols normally denote

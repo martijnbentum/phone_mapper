@@ -54,7 +54,7 @@ from phone_mapper import ipa_to_definition, counts, validate, show
 ipa_to_definition['p']   # 'voiceless bilabial plosive'
 counts()                 # entry counts per phoneme set
 validate()               # list of mapping inconsistencies (empty if OK)
-show()                   # print IPA/SAMPA/CELEX/DISC/CGN side by side
+show()                   # print IPA/SAMPA/CELEX/DISC/CGN/ARPAbet table
 ```
 
 ## Data

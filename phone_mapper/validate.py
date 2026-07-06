@@ -40,8 +40,7 @@ def _check_bijection(name, forward, inverse):
 
 
 def _check_namespace(namespace, disc_to_ipa):
-    '''Check mapping pairs and symbol domains for one namespace
-    (a Language or a dataset module).
+    '''Check mapping pairs and symbol domains for one dataset module.
 
     Pair check: every value of x_to_y must be a key of y_to_x when that
     inverse exists. This tolerates aliases (two symbols mapping to the
