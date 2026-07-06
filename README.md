@@ -31,6 +31,9 @@ mapper.dutch.cgn_to_ipa['A~']                  # 'ɑ̃ː'
 mapper.dutch.ipa_to_example_words['p']         # 'put'
 mapper.english.arpabet_to_disc['AA']           # 'A'
 mapper.english.arpabet_to_example_words['IY']  # 'b(ea)t'
+
+# A namespace's repr lists the mappings it provides:
+mapper.german   # <Language german: ipa_to_example_words>
 ```
 
 Module-level helpers:
@@ -50,9 +53,15 @@ All mappings live in JSON files under `phone_mapper/data/`, one mapping
 per file. A bidirectional file named `x_to_y.json` stores exactly two
 dicts under the keys `x_to_y` and `y_to_x` (for example `disc_to_ipa.json`
 holds `disc_to_ipa` and `ipa_to_disc`); the loader derives the key names
-from the filename. Language-specific data (CGN, Baldey, COOLEST, ARPAbet,
-example words) lives in `data/dutch/`, `data/english/`, and
-`data/german/`.
+from the filename.
+
+The `Mapper` mirrors the folder layout. Files directly in `data/` become
+the general top-level mappings; each subfolder (`data/dutch/`,
+`data/english/`, `data/german/`) becomes a `Language` namespace holding
+that language's mappings (CGN, Baldey, COOLEST, ARPAbet, example words),
+with every JSON file exposed as attributes named after the file. Adding
+a language means adding a folder of JSON files and one line in
+`Mapper.__init__`.
 
 ## Development
 
