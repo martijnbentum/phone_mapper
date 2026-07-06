@@ -19,15 +19,12 @@ Requires Python 3.12+. No runtime dependencies.
 ```python
 from phone_mapper import Mapper
 
-mapper = Mapper()               # language='dutch' by default
+mapper = Mapper()
 mapper.disc_to_ipa['p']         # 'p'
 mapper.ipa_to_sampa['tʃ']       # 'tS'
 mapper.cgn_to_ipa['A~']         # 'ɑ̃ː'
 mapper.arpabet_to_disc['AA']    # 'A'
-
-# For non-Dutch languages /w/ is remapped to /ʋ/:
-english = Mapper(language='english')
-english.celex_to_ipa['w']       # 'ʋ'
+mapper.celex_to_ipa['w']        # 'ʋ' (w is realised as ʋ in Dutch)
 ```
 
 Module-level helpers:

@@ -9,7 +9,6 @@ from .mapper import (
     ipa_to_definition,
     sampa_to_ipa,
     show,
-    to_ipa,
     validate,
 )
 
@@ -24,6 +23,5 @@ __all__ = [
     'ipa_to_definition',
     'sampa_to_ipa',
     'show',
-    'to_ipa',
     'validate',
 ]

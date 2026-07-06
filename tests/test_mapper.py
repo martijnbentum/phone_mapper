@@ -1,6 +1,6 @@
 import pytest
 from phone_mapper import (
-    Mapper, counts, ipa_set, ipa_to_definition, validate, to_ipa,
+    Mapper, counts, ipa_set, ipa_to_definition, validate,
     sampa_to_ipa, celex_to_ipa, disc_to_ipa,
 )
 
@@ -135,20 +135,12 @@ def test_validate_no_problems(mapper):
     assert validate(mapper) == []
 
 
-def test_validate_non_dutch():
-    assert validate(Mapper(language='english')) == []
-
-
 def test_instances_are_isolated():
     m1, m2 = Mapper(), Mapper()
     m1.arpabet_to_ipa['ZZ'] = 'test'
     m1.ipa_to_example_words_dutch['zz'] = 'test'
     assert 'ZZ' not in m2.arpabet_to_ipa
     assert 'zz' not in m2.ipa_to_example_words_dutch
-
-
-def test_to_ipa_lookup():
-    assert to_ipa['p'] == 'p'
 
 
 def test_module_level_sampa_to_ipa():
@@ -163,10 +155,10 @@ def test_module_level_disc_to_ipa():
     assert disc_to_ipa['p'] == 'p'
 
 
-# ── non-Dutch language ─────────────────────────────────────────────────────
+# ── w is encoded as ʋ in the mapping data ──────────────────────────────────
 
-def test_non_dutch_fix_w():
-    m = Mapper(language='english')
-    assert m.celex_to_ipa['w'] == 'ʋ'
-    assert m.sampa_to_ipa['w'] == 'ʋ'
-    assert m.disc_to_ipa['w'] == 'ʋ'
+def test_w_maps_to_labiodental_approximant(mapper):
+    assert mapper.celex_to_ipa['w'] == 'ʋ'
+    assert mapper.sampa_to_ipa['w'] == 'ʋ'
+    assert mapper.disc_to_ipa['w'] == 'ʋ'
+    assert mapper.cgn_to_ipa['w'] == 'ʋ'
