@@ -20,11 +20,17 @@ Requires Python 3.12+. No runtime dependencies.
 from phone_mapper import Mapper
 
 mapper = Mapper()
+
+# General mappings are attributes:
 mapper.disc_to_ipa['p']         # 'p'
 mapper.ipa_to_sampa['tʃ']       # 'tS'
-mapper.cgn_to_ipa['A~']         # 'ɑ̃ː'
-mapper.arpabet_to_disc['AA']    # 'A'
 mapper.celex_to_ipa['w']        # 'ʋ' (w is realised as ʋ in Dutch)
+
+# Language-specific mappings live in per-language namespaces:
+mapper.dutch.cgn_to_ipa['A~']                  # 'ɑ̃ː'
+mapper.dutch.ipa_to_example_words['p']         # 'put'
+mapper.english.arpabet_to_disc['AA']           # 'A'
+mapper.english.arpabet_to_example_words['IY']  # 'b(ea)t'
 ```
 
 Module-level helpers:
@@ -40,11 +46,13 @@ show()                   # print IPA/SAMPA/CELEX/DISC/CGN side by side
 
 ## Data
 
-All mappings live in JSON files under `phone_mapper/data/`. Bidirectional
-files store the forward and inverse dicts under named keys (for example
-`disc_to_ipa` and `ipa_to_disc`). Language-specific data (CGN, Baldey,
-COOLEST, ARPAbet, example words) lives in `data/dutch/`, `data/english/`,
-and `data/german/`.
+All mappings live in JSON files under `phone_mapper/data/`, one mapping
+per file. A bidirectional file named `x_to_y.json` stores exactly two
+dicts under the keys `x_to_y` and `y_to_x` (for example `disc_to_ipa.json`
+holds `disc_to_ipa` and `ipa_to_disc`); the loader derives the key names
+from the filename. Language-specific data (CGN, Baldey, COOLEST, ARPAbet,
+example words) lives in `data/dutch/`, `data/english/`, and
+`data/german/`.
 
 ## Development
 
