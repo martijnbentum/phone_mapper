@@ -52,6 +52,24 @@ def test_celex_rhotic(mapper):
     assert mapper.ipa_to_celex['*'] == 'r*'
 
 
+def test_disc_nasal_bouillon(mapper):
+    '''The CELEX data files use ~ for ɒ̃ː; " is the secondary stress
+    marker in DISC pronunciation strings, not a phoneme.'''
+    assert mapper.disc_to_ipa['~'] == 'ɒ̃ː'
+    assert mapper.ipa_to_disc['ɒ̃ː'] == '~'
+    assert '"' not in mapper.disc_to_ipa
+
+
+def test_celex_nasals_match_data_notation(mapper):
+    '''The CELEX columns in the data files mark nasalization with ~.'''
+    assert mapper.celex_to_ipa['&~'] == 'æ̃'
+    assert mapper.celex_to_ipa['&~:'] == 'æ̃ː'
+    assert mapper.celex_to_ipa['A~:'] == 'ɑ̃ː'
+    assert mapper.celex_to_ipa['O~:'] == 'ɒ̃ː'
+    assert mapper.celex_to_ipa['Q~:'] == 'œ̃'
+    assert mapper.ipa_to_celex['ɒ̃ː'] == 'O~:'
+
+
 def test_cgn_nasals_vaccin(mapper):
     assert cgn.cgn_to_ipa['E~'] == 'æ̃'
 
