@@ -5,7 +5,7 @@ from phone_mapper import (
 )
 from phone_mapper import arpabet, baldey, cgn, coolest, diphone
 
-N_IPA = 94
+N_IPA = 95
 
 
 @pytest.fixture(scope='module')
@@ -66,8 +66,15 @@ def test_celex_nasals_match_data_notation(mapper):
     assert mapper.celex_to_ipa['&~:'] == 'æ̃ː'
     assert mapper.celex_to_ipa['A~:'] == 'ɑ̃ː'
     assert mapper.celex_to_ipa['O~:'] == 'ɒ̃ː'
-    assert mapper.celex_to_ipa['Q~:'] == 'œ̃'
+    assert mapper.celex_to_ipa['Q~:'] == 'œ̃ː'
     assert mapper.ipa_to_celex['ɒ̃ː'] == 'O~:'
+
+
+def test_disc_nasal_parfum(mapper):
+    '''German Parfum is transcribed Q~: with two cv slots, so disc ^
+    is the long nasal.'''
+    assert mapper.disc_to_ipa['^'] == 'œ̃ː'
+    assert mapper.ipa_to_disc['œ̃ː'] == '^'
 
 
 def test_cgn_nasals_vaccin(mapper):
