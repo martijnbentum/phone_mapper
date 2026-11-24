@@ -1,0 +1,87 @@
+% This table lists the phonemic symbols recognized by MAUS in the input for language eng-NZ. Columns are:
+% MAUS: symbol as recognized by MAUS, SAMPA: original (X-)SAMPA symbol, IPA: corresponding IPA symbol, PHONETICS: phonetic description,
+% EXAMPLES: example words (and/or Language Name), ISO636-3: language code ('xxx' = used in multiple languages),
+% MANNER: phonetic manner, PLACE: place of articulation [optional: acoustic model MAUS uses for this symbol; only in Language Independent Mode].
+% ----------------------------------------------------------------------------------------------------------------------------------------------
+MAUS	SAMPA	IPA	PHONETICS	EXAMPLES	ISO639-3	MANNER	PLACE
+<usb>	<usb>	(..)	human noise, garbage		xxx	noise	noise
+<nib>	<nib>	(.)	noise, non-human		xxx	noise	noise
+<p:>	<p:>	(...)	silence interval (optional)		xxx	silence	silence
+<p>	<p>	(...)	silence interval (non-optional)		xxx	silence	silence
+i:@	i:@	iːə	diphthong	memorial	nze	diphthong	highfront>midcentral
+U@	U@	ʊə	diphthong	cures	aus	diphthong	highback>midcentral
+tS	tS	tʃ	voiceless postalveolar affricate	(English) chair, (Spanish) mucho	xxx	affricate	post-alveolar
+r\	r\	ɹ	alveolar approximant	(English) run	eng-AU	approximant	alveolar
+oI	oI	oɪ	diphthong		aus	diphthong	midback>highfront
+{O	{O	æɔ	diphthong		aus	diphthong	lowfront>midback
+o:	o:	oː	lengthened back half closed rounded vowel	Sohle	deu	vowel	midback
+o~	o~	õ	nasalized back half closed rounded vowel	bon	fra	vowel	midback
+I@	I@	ɪə	diphthong	dears	aus	diphthong	highmidfront>midcentral
+{I	{I	æɪ	diphthong		aus	diphthong	lowfront>highfront
+i:	i:	iː	lengthened front closed unrounded vowel	mieten	deu	vowel	highfront
+e@	e@	eə	diphthong	stairs	aus	diphthong	midfront>midcentral
+e:	e:	eː	lengthened front half closed unrounded vowel	mehr	deu	vowel	midfront
+e~	e~	ẽ	nasalized front half closed unrounded vowel	vin	fra	vowel	midfront
+dZ	dZ	dʒ	voiced postalveolar affricate	(English) gin, (Italian) giorno	xxx	affricate	post-alveolar
+Ae	Ae	ɑe	diphthong		aus	diphthong	lowback>midfront
+a~	a~	ã	nasalized central open vowel	vent	fra	vowel	lowfront
+6:	6:	ɐː	lengthened central neutral unrounded vowel	Yolngu Matha bäpa 'father'	aus	vowel	lowcentral
+3:	3:	ɜː	lengthened front half open unrounded vowel	furs	aus	vowel	lowcentral
+@}	@}	əʉ	diphthong		aus	diphthong	midcentral>highcentral
+}:	}:	ʉː	lengthened central closed rounded vowel	pool	aus	vowel	highcentral
+l=	l=	l̩	syllabic lateral	(English) bridal	use	lateral-approximant	alveolar
+m=	m=	m̩	syllabic bilabial nasal	(English) bottom	use	nasal	bilabial
+n=	n=	n̩	syllabic alveolar nasal	(English) Boston	use	nasal	alveolar
+Z	Z	ʒ	voiced postalveolar fricative	(French) jour, (English) pleasure	xxx	fricative	post-alveolar
+z	z	z	voiced alveolar fricative	(English) zoo, (German) See	xxx	fricative	alveolar
+x	x	x	voiceless velar fricative	(Scottish) loch, (Castilian Spanish) ajo	xxx	fricative	velar
+W	W	ʍ	voiceless labial-velar fricative		xxx	fricative	labio-velar
+w	w	w	labial-velar approximant	(English) we, (French) oui	xxx	approximant	labio-velar
+v	v	v	voiced labiodental fricative	(English) voice, (German) Welt	xxx	fricative	labio-dental
+U	U	ʊ	back closed rounded vowel somewhat more centralised and relaxed	(English) put, Buddhist	xxx	vowel	highback
+T	T	θ	voiceless dental fricative	(English) thing, (Castilian Spanish) caza	xxx	fricative	dental
+t	t	t	voiceless alveolar plosive	(English) two, (Spanish) toma	xxx	plosive	alveolar
+S	S	ʃ	voiceless postalveolar fricative	(English) she, (French) chemin	xxx	fricative	post-alveolar
+s	s	s	voiceless alveolar fricative	(English) see, (Spanish) sí	xxx	fricative	alveolar
+r	r	r	alveolar trill	(Spanish) perro	xxx	trill	alveolar
+p	p	p	voiceless bilabial plosive	(English) pen	xxx	plosive	bilabial
+O	O	ɔ	back half open rounded vowel	British (English) law, caught, (Italian) cosa, (Catalan) dona, (Spanish) ojo, (German) Wort	xxx	vowel	midback
+o	o	o	back half closed rounded vowel	US (English) sore, Scottish English boat, (Spanish) yo, (French) beau, (German) Sohle, (Italian) dove, (Catalan) ona	xxx	vowel	midback
+N	N	ŋ	velar nasal	(English) ring, (Italian) bianco, (Tagalog) ngayón	xxx	nasal	velar
+n	n	n	alveolar nasal	(English), (Spanish) and (Italian) no	xxx	nasal	alveolar
+m	m	m	bilabial nasal	(English) man	xxx	nasal	bilabial
+l	l	l	alveolar lateral approximant	(English) left, (Spanish) largo	xxx	lateral-approximant	alveolar
+k	k	k	voiceless velar plosive	(English) skill	xxx	plosive	velar
+j	j	j	palatal approximant	(English) yes, (French) yeux	xxx	approximant	palatal
+I	I	ɪ	front closed unrounded vowel, but somewhat more centralised and relaxed, in Polish: mid closed unrounded	(English) city, (German) mit	xxx	vowel	highfront
+i	i	i	front closed unrounded vowel	(English) see, (Spanish) sí, (French) vite, (German) mi.e.ten, (Italian) visto	xxx	vowel	highfront
+h	h	h	voiceless glottal fricative	(English) ham, (German) Hand	xxx	fricative	glottal
+g	g	ɡ	voiced velar plosive	(English) go	xxx	plosive	velar
+f	f	f	voiceless labiodental fricative	(English) fool, (Spanish) and (Italian) falso	xxx	fricative	labio-dental
+e	e	e	front half closed unrounded vowel	US (English) bear, (Spanish) él, (French) année, (German) mehr, (Italian) rete, (Catalan) més	xxx	vowel	midfront
+D	D	ð	voiced dental fricative	(English) this	xxx	fricative	dental
+d	d	d	voiced alveolar plosive	(English) do, (Italian) cade	xxx	plosive	alveolar
+C	C	ç	voiceless palatal fricative	(German) Ich	xxx	fricative	palatal
+b	b	b	voiced bilabial plosive	(English) but	xxx	plosive	bilabial
+6	6	ɐ	central neutral unrounded vowel	(German) besser	xxx	vowel	lowcentral
+4	4	ɾ	alveolar tap	(Spanish) pero, (American English) muddy	eng-US	tap	alveolar
+#	#	(...)	inter-word silence (optional)		xxx	silence	silence
+@	@	ə	central neutral unrounded vowel	(English) about, winner,(German) bitte	xxx	vowel	midcentral
+}	}	ʉ	central closed rounded vowel	(Scottish English) pool, (Swedish) sju	xxx	vowel	highcentral
+{	{	æ	front open unrounded vowel	(English) cat	xxx	vowel	midfront
+?	?	ʔ	glottal stop	(German) Verein, (Danish) stød	xxx	plosive	glottal
+>	>	(...)	recording trailing silence (optional)		xxx	silence	silence
+<	<	(...)	recording initial silence (optional)		xxx	silence	silence
+% ----------------------------------------------------------------------------------------
+% MAUS Parameter Set NEWZEALANDENGLISH
+% 
+% English SAM-PA inventar adapted to New Zealand English (NZE)
+% (phoneme set provided by Catherine Watson, Christchurch)
+% Acoustic modeling with Australian English HMM adapted (maus.iter) on a transcribed 
+% set of NZE data (211 recordings provided by Catherine Watson) using the 
+% canonical pronunciation form. 
+% Rule set is the default AE rule set for the time being; rule set has been used during 
+% iterative adaptation. See MAUS/USERPROJECTS/CatherineWatson for details 
+% (not included in distribution).
+% 
+% Details:

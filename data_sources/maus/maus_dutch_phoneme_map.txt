@@ -1,0 +1,93 @@
+% This table lists the phonemic symbols recognized by MAUS in the input for language nld-NL. Columns are:
+% MAUS: symbol as recognized by MAUS, SAMPA: original (X-)SAMPA symbol, IPA: corresponding IPA symbol, PHONETICS: phonetic description,
+% EXAMPLES: example words (and/or Language Name), ISO636-3: language code ('xxx' = used in multiple languages),
+% MANNER: phonetic manner, PLACE: place of articulation [optional: acoustic model MAUS uses for this symbol; only in Language Independent Mode].
+% ----------------------------------------------------------------------------------------------------------------------------------------------
+MAUS	SAMPA	IPA	PHONETICS	EXAMPLES	ISO639-3	MANNER	PLACE
+<usb>	<usb>	(..)	human noise, garbage		xxx	noise	noise
+<nib>	<nib>	(.)	noise, non-human		xxx	noise	noise
+<p:>	<p:>	(...)	silence interval (optional)		xxx	silence	silence
+<p>	<p>	(...)	silence interval (non-optional)		xxx	silence	silence
+o:i	o:i	oːi	diphthong		nld	diphthong	midback>highfront
+O:~	O:~	ɔ̃ː	nasalized lengthened back half open rounded vowel		nld	vowel	midback
+o:~	o:~	õː	nasalized lengthened back half closed rounded vowel		deu	vowel	midback
+e:u	e:u	eːu	diphthong		nld	diphthong	midfront>highback
+E:~	E:~	ɛ̃ː	nasalized lengthened front half open unrounded vowel		deu	vowel	midfront
+a:i	a:i	aːi	diphthong		nld	diphthong	lowfront>fronthigh
+a:~	a:~	ãː	nasalized lengthened lowcentral open vowel		deu	vowel	lowfront
+yu	yu	yu	diphthong		nld	diphthong	highfront>highback
+ui	ui	ui	diphthong		nld	diphthong	highback>highfront
+@U	@U	əʊ	diphthong	nose	aus	diphthong	midcentral>highback
+O:	O:	ɔː	lengthened back half open rounded vowel	(Yolngu Matha)	aus	vowel	midback
+O~	O~	ɔ̃	nasalized back half open rounded vowel		deu	vowel	midback
+o:	o:	oː	lengthened back half closed rounded vowel	Sohle	deu	vowel	midback
+iu	iu	iu	diphthong		nld	diphthong	highfront>highback
+EI	EI	ɛɪ	diphthong	raise	eng	diphthong	midfront>highfront
+Ei	Ei	ɛi	diphthong		ita	diphthong	midfront>highfront
+E:	E:	ɛː	lengthened front half open unrounded vowel	Mär	deu	vowel	midfront
+E~	E~	ɛ̃	nasalized lengthened front half open unrounded vowel		deu	vowel	midfront
+e:	e:	eː	lengthened front half closed unrounded vowel	mehr	deu	vowel	midfront
+Au	Au	ɑu	diphthong		nld	diphthong	lowback>highback
+A~	A~	ɑ̃	nasalised back open unrounded vowel		nld	vowel	lowback
+a:	a:	aː	lengthened central open vowel	Haar	deu	vowel	lowfront
+9y	9y	œy	diphthong		nld	diphthong	lowfront>highfront
+9:	9:	œː	lengthened front half open rounded vowel		nld	vowel	midfront
+2:	2:	øː	lengthened front half closed rounded vowel	Höhle	deu	vowel	midfront
+Z	Z	ʒ	voiced postalveolar fricative	(French) jour, (English) pleasure	xxx	fricative	post-alveolar
+z	z	z	voiced alveolar fricative	(English) zoo, (German) See	xxx	fricative	alveolar
+Y	Y	ʏ	lax [y]	(German) hübsch	xxx	vowel	highfront
+y	y	y	front closed rounded vowel	(French) du, (German) Tür	xxx	vowel	highfront
+x	x	x	voiceless velar fricative	(Scottish) loch, (Castilian Spanish) ajo	xxx	fricative	velar
+w	w	w	labial-velar approximant	(English) we, (French) oui	xxx	approximant	labio-velar
+v	v	v	voiced labiodental fricative	(English) voice, (German) Welt	xxx	fricative	labio-dental
+u	u	u	back closed rounded vowel	(English) soon, (Spanish) tú, (French) goût, (German) Hut, Mutter, (Italian) azzurro,tutto	xxx	vowel	highback
+T	T	θ	voiceless dental fricative	(English) thing, (Castilian Spanish) caza	xxx	fricative	dental
+t	t	t	voiceless alveolar plosive	(English) two, (Spanish) toma	xxx	plosive	alveolar
+S	S	ʃ	voiceless postalveolar fricative	(English) she, (French) chemin	xxx	fricative	post-alveolar
+s	s	s	voiceless alveolar fricative	(English) see, (Spanish) sí	xxx	fricative	alveolar
+r	r	r	alveolar trill	(Spanish) perro	xxx	trill	alveolar
+p	p	p	voiceless bilabial plosive	(English) pen	xxx	plosive	bilabial
+O	O	ɔ	back half open rounded vowel	British (English) law, caught, (Italian) cosa, (Catalan) dona, (Spanish) ojo, (German) Wort	xxx	vowel	midback
+N	N	ŋ	velar nasal	(English) ring, (Italian) bianco, (Tagalog) ngayón	xxx	nasal	velar
+n	n	n	alveolar nasal	(English), (Spanish) and (Italian) no	xxx	nasal	alveolar
+m	m	m	bilabial nasal	(English) man	xxx	nasal	bilabial
+l	l	l	alveolar lateral approximant	(English) left, (Spanish) largo	xxx	lateral-approximant	alveolar
+k	k	k	voiceless velar plosive	(English) skill	xxx	plosive	velar
+J	J	ɲ	palatal nasal	(Spanish) año, (French) oignon	xxx	nasal	palatal
+j	j	j	palatal approximant	(English) yes, (French) yeux	xxx	approximant	palatal
+I	I	ɪ	front closed unrounded vowel, but somewhat more centralised and relaxed, in Polish: mid closed unrounded	(English) city, (German) mit	xxx	vowel	highfront
+i	i	i	front closed unrounded vowel	(English) see, (Spanish) sí, (French) vite, (German) mi.e.ten, (Italian) visto	xxx	vowel	highfront
+h	h	h	voiceless glottal fricative	(English) ham, (German) Hand	xxx	fricative	glottal
+G	G	ɣ	voiced velar fricative	Greek γάλα	xxx	fricative	velar
+g	g	ɡ	voiced velar plosive	(English) go	xxx	plosive	velar
+f	f	f	voiceless labiodental fricative	(English) fool, (Spanish) and (Italian) falso	xxx	fricative	labio-dental
+E	E	ɛ	front half open unrounded vowel	(English) bed, (French) même, (German) Herr, Männer, (Italian) ferro, (Catalan) mes, (Spanish) perro	xxx	vowel	midfront
+D	D	ð	voiced dental fricative	(English) this	xxx	fricative	dental
+d	d	d	voiced alveolar plosive	(English) do, (Italian) cade	xxx	plosive	alveolar
+b	b	b	voiced bilabial plosive	(English) but	xxx	plosive	bilabial
+A	A	ɑ	back open unrounded vowel	(English) arm, US English law, standard (French) âme	xxx	vowel	lowback
+#	#	(...)	inter-word silence (optional)		xxx	silence	silence
+@	@	ə	central neutral unrounded vowel	(English) about, winner,(German) bitte	xxx	vowel	midcentral
+?	?	ʔ	glottal stop	(German) Verein, (Danish) stød	xxx	plosive	glottal
+>	>	(...)	recording trailing silence (optional)		xxx	silence	silence
+<	<	(...)	recording initial silence (optional)		xxx	silence	silence
+% ----------------------------------------------------------------------------------------
+% 
+% MAUS Parameter Set nld-NL
+% 
+% This parameter set is adapted for Dutch spoken in Northern Netherlands. 
+% It uses the standard Dutch SAM-PA inventar extended by glottal stop (although not defined 
+% in the official Dutch SAMPA set) as well as some French, German and 
+% English phonemes to allow foreign word segmentation.
+% 
+% Acoustic models are trained on the manually verified phonetic transcriptions
+% (fn*.fon) of the CGN corpus using maus.iter; phoneme symbols of CGN were adapted to match SAM-PA.
+% The pronunciation model is trained on the same corpus with reference to 
+% G2P using lng = nld-NL. Due to systematic differences in the way CGN encoded
+% canonic pronunciation and the way G2P translated nld-NL, there are a small number 
+% of replacement rules (with prob = 1.0) which were changed so that the conditional
+% prob is 0.5 (so effectively both, the G2P and CGN variants, are equally probable).
+% 
+% 
+% See also the file USAGE in the top directory of the package.
+% 

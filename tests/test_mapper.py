@@ -3,7 +3,7 @@ from phone_mapper import (
     Mapper, counts, ipa_set, ipa_to_definition, show, validate,
     sampa_to_ipa, celex_to_ipa, disc_to_ipa,
 )
-from phone_mapper import arpabet, baldey, cgn, coolest, diphone
+from phone_mapper import arpabet, baldey, cgn, coolest, diphone, maus
 
 N_IPA = 95
 
@@ -99,6 +99,7 @@ def test_dataset_modules():
     assert baldey.name == 'baldey'
     assert coolest.name == 'coolest'
     assert diphone.name == 'diphone'
+    assert maus.name == 'maus'
     assert diphone.to_ipa['sh'] == 'ʃ'
 
 
@@ -133,6 +134,31 @@ def test_coolest_to_ipa():
     assert coolest.coolest_to_ipa['i'] == 'iː'
 
 
+def test_maus_languages():
+    assert set(maus.maus_sampa_to_ipa) == set(maus.languages)
+    assert set(maus.ipa_to_maus_sampa) == set(maus.languages)
+
+
+def test_maus_sampa_to_ipa():
+    assert maus.maus_sampa_to_ipa['eng']['aI'] == 'aɪ'
+    assert maus.maus_sampa_to_ipa['eng']['D'] == 'ð'
+    assert maus.maus_sampa_to_ipa['nld']['EI'] == 'ɛɪ'
+    assert maus.maus_sampa_to_ipa['hun']['d_j'] == 'dʲ'
+
+
+def test_maus_is_language_specific():
+    # the generic sampa table maps w to the Dutch labiodental
+    assert sampa_to_ipa['w'] == 'ʋ'
+    assert maus.maus_sampa_to_ipa['eng']['w'] == 'w'
+
+
+def test_maus_non_speech_labels():
+    for language in maus.languages:
+        table = maus.maus_sampa_to_ipa[language]
+        assert table['<p:>'] == '(...)'
+        assert maus.ipa_to_maus_sampa[language]['(...)'] == '<p:>'
+
+
 def test_arpabet_to_disc():
     assert arpabet.arpabet_to_disc['AA'] == 'A'
     assert arpabet.arpabet_to_disc['M'] == 'm'
@@ -161,6 +187,7 @@ def test_counts(mapper):
     assert result['baldey_set'] > 0
     assert result['cgn_set'] > 0
     assert result['coolest_set'] > 0
+    assert result['maus_sets']['eng'] > 0
 
 
 def test_show(mapper, capsys):

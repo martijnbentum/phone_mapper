@@ -1,7 +1,7 @@
 # phone_mapper
 
 Phoneme mapping between IPA, SAMPA, CELEX, DISC, CGN, ARPAbet, Baldey,
-and COOLEST transcription systems.
+COOLEST and WebMAUS (per language) transcription systems.
 
 Ported from `phoneme_mapper.py` in
 [diphone_perception](https://github.com/martijnbentum/diphone_perception).
@@ -33,7 +33,7 @@ mapper.ipa_to_example_words['german']['p']   # 'Pakt'
 
 Phoneme sets tied to a particular language, corpus, or experiment
 rather than a cross-language system (ARPAbet, CGN, Baldey, COOLEST,
-diphone) each live in their own module:
+diphone, MAUS) each live in their own module:
 
 ```python
 from phone_mapper import arpabet, baldey, cgn, coolest, diphone
@@ -45,6 +45,22 @@ baldey.baldey_to_disc['A+']     # 'M'
 coolest.coolest_to_ipa['i']     # 'iː'
 diphone.to_ipa['sh']            # 'ʃ'
 ```
+
+WebMAUS alignments (SAMPA output) have one table per language, keyed by
+ISO 639-3 code (`nld`, `eng`, `fra`, `deu`, `hun`, `ita`, `pol`, `spa`):
+
+```python
+from phone_mapper import maus
+
+maus.maus_sampa_to_ipa['eng']['aI']    # 'aɪ'
+maus.maus_sampa_to_ipa['hun']['d_j']   # 'dʲ'
+maus.maus_sampa_to_ipa['nld']['<p:>']  # '(...)' (pause)
+maus.ipa_to_maus_sampa['nld']['(...)'] # '<p:>'
+```
+
+Keys are MAUS symbols, which are not always strict SAMPA (`d_j` where
+SAMPA writes `d'`). English merges the us, gb, au, nz and sc variant
+tables, which agree on every shared symbol.
 
 Module-level helpers:
 
@@ -76,8 +92,14 @@ Files directly in `data/` are the general mappings loaded by the
 `Mapper`, including `ipa_to_example_words.json`, which holds the
 example words for all languages under one key per language — adding a
 language means adding a key to that file. Each remaining subfolder
-(`data/arpabet/`, `data/cgn/`, `data/baldey/`, `data/coolest/`) belongs
-to the module of the same name, not to the `Mapper`.
+(`data/arpabet/`, `data/cgn/`, `data/baldey/`, `data/coolest/`,
+`data/maus/`) belongs to the module of the same name, not to the `Mapper`.
+
+`data/maus/<iso>.json` holds `maus_sampa_to_ipa` and `ipa_to_maus_sampa`
+for one language. These files are generated from the BAS WebMAUS phoneme
+tables in `data_sources/maus/` (not packaged) with
+`.venv/bin/python scripts/build_maus_maps.py`; edit the build script or
+the source tables, not the JSON.
 
 ## Development
 

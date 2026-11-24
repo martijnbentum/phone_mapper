@@ -1,0 +1,211 @@
+% This table lists the phonemic symbols recognized by MAUS in the input for language ita-IT. Columns are:
+% MAUS: symbol as recognized by MAUS, SAMPA: original (X-)SAMPA symbol, IPA: corresponding IPA symbol, PHONETICS: phonetic description,
+% EXAMPLES: example words (and/or Language Name), ISO636-3: language code ('xxx' = used in multiple languages),
+% MANNER: phonetic manner, PLACE: place of articulation [optional: acoustic model MAUS uses for this symbol; only in Language Independent Mode].
+% ----------------------------------------------------------------------------------------------------------------------------------------------
+MAUS	SAMPA	IPA	PHONETICS	EXAMPLES	ISO639-3	MANNER	PLACE
+ttS_rl	ttS_rl	tːʃ_rl	release of ttS		ita	affricate	post-alveolar
+tts_rl	tts_rl	tːs_rl	release of tts		ita	affricate	alveolar
+ttS_cl	ttS_cl	tːʃ_cl	closure of ttS		ita	affricate	post-alveolar
+tts_cl	tts_cl	tːs_cl	closure of tts		ita	affricate	alveolar
+ddz_rl	ddz_rl	dːz_rl	release of ddz	zona	ita	affricate	alveolar
+ddz_cl	ddz_cl	dːz_cl	closure of ddz	zona	ita	affricate	alveolar
+<usb>	<usb>	(..)	human noise, garbage		xxx	noise	noise
+tt_rl	tt_rl	tː_rl	release of tt		ita	plosive	alveolar
+tt_cl	tt_cl	tː_cl	closure of tt		ita	plosive	alveolar
+tS_rl	tS_rl	tʃ_rl	release of tS		ita	affricate	post-alveolar
+ts_rl	ts_rl	ts_rl	release of ts		ita	affricate	alveolar
+tS_cl	tS_cl	tʃ_cl	closure of tS		ita	affricate	post-alveolar
+ts_cl	ts_cl	ts_cl	closure of ts		ita	affricate	alveolar
+pp_rl	pp_rl	pː_rl	release of pp		ita	plosive	bilabial
+pp_cl	pp_cl	pː_cl	closure of pp		ita	plosive	bilabial
+<nib>	<nib>	(.)	noise, non-human		xxx	noise	noise
+kk_rl	kk_rl	kː_rl	release of kk		ita	plosive	velar
+kk_cl	kk_cl	kː_cl	closure of kk		ita	plosive	velar
+gg_rl	gg_rl	ɡː_rl	release of gg		ita	plosive	velar
+gg_cl	gg_cl	ɡː_cl	release of gg		ita	plosive	velar
+dZ_rl	dZ_rl	dʒ_rl	release of dZ		ita	affricate	post-alveolar
+dz_rl	dz_rl	dz_rl	release of dz		ita	affricate	alveolar
+dZ_cl	dZ_cl	dʒ_cl	closure of dZ		ita	affricate	post-alveolar
+dz_cl	dz_cl	dz_cl	closure of dz		ita	affricate	alveolar
+dd_rl	dd_rl	dː_rl	release of dd		ita	plosive	alveolar
+dd_cl	dd_cl	dː_cl	release of dd		ita	plosive	alveolar
+t_rl	t_rl	t_rl	release of t		ita	plosive	alveolar
+t_cl	t_cl	t_cl	closure of t		ita	plosive	alveolar
+p_rl	p_rl	p_rl	release of p		ita	plosive	bilabial
+p_cl	p_cl	p_cl	closure of p		ita	plosive	bilabial
+<p:>	<p:>	(...)	silence interval (optional)		xxx	silence	silence
+k_rl	k_rl	k_rl	release of k		ita	plosive	velar
+k_cl	k_cl	k_cl	closure of k		ita	plosive	velar
+g_rl	g_rl	ɡ_rl	release of g		ita	plosive	velar
+g_cl	g_cl	ɡ_cl	closure of g		ita	plosive	velar
+d_rl	d_rl	d_rl	release of d		ita	plosive	alveolar
+d_cl	d_cl	d_cl	closure of d		ita	plosive	alveolar
+ttS	ttS	tːʃ	geminate of tS		ita	affricate	post-alveolar
+tts	tts	tːs	geminate of ts		ita	affricate	alveolar
+<p>	<p>	(...)	silence interval (non-optional)		xxx	silence	silence
+ddZ	ddZ	dːʒ	geminate of dZ		ita	affricate	post-alveolar
+ddz	ddz	dːz	geminate of dz	zona	ita	affricate	alveolar
+y:	y:	yː	lengthened front closed rounded vowel	Tür	deu	vowel	highfront
+wO	wO	wɔ	diphthong		ita	diphthong	lowcentral>midback
+wi	wi	wi	diphthong		ita	diphthong	lowcentral>highfront
+we	we	we	diphthong		ita	diphthong	lowcentral>midfront
+wa	wa	wa	diphthong		ita	diphthong	lowcentral>lowfront
+vv	vv	vː	geminate of v		ita	fricative	labio-dental
+ue	ue	ue	diphthong		ita	diphthong	highback>midfront
+tt	tt	tː	geminate of t	fatto	ita	plosive	alveolar
+tS	tS	tʃ	voiceless postalveolar affricate	(English) chair, (Spanish) mucho	xxx	affricate	post-alveolar
+ts	ts	ts	voiceless alveolar affricate	(Italian) calza, (German) zeit	xxx	affricate	alveolar
+SS	SS	ʃː	geminate of S		ita	fricative	post-alveolar
+ss	ss	sː	geminate of s		ita	fricative	alveolar
+rr	rr	rː	geminate of r		ita	trill	alveolar
+pp	pp	pː	geminate of p		ita	plosive	bilabial
+Oi	Oi	ɔi	diphthong		ita	diphthong	midback>highfront
+oi	oi	oi	diphthong		ita	diphthong	midback>highfront
+oE	oE	oɛ	diphthong		ita	diphthong	midback>midfront
+nn	nn	nː	geminate of n		ita	nasal	alveolar
+mm	mm	mː	geminate of m		ita	nasal	bilabial
+LL	LL	ʎː	geminate of L		ita	lateral-approximant	palatal
+ll	ll	lː	geminate of l		ita	lateral-approximant	alveolar
+kk	kk	kː	geminate of k		ita	plosive	velar
+ju	ju	ju	diphthong		ita	diphthong	highfront>highback
+jo	jo	jo	diphthong		ita	diphthong	highfront>midback
+JJ	JJ	ɲː	geminate of J		ita	nasal	palatal
+ja	ja	ja	diphthong		ita	diphthong	highfront>lowfront
+io	io	io	diphthong		ita	diphthong	highfront>midback
+gg	gg	ɡː	geminate of g		ita	plosive	velar
+ff	ff	fː	geminate of f		ita	fricative	labiodental
+Ei	Ei	ɛi	diphthong		ita	diphthong	midfront>highfront
+ei	ei	ei	diphthong		ita	diphthong	midfront>highfront
+dZ	dZ	dʒ	voiced postalveolar affricate	(English) gin, (Italian) giorno	xxx	affricate	post-alveolar
+dz	dz	dz	voiced alveolar affricate	(Italian) zona	xxx	affricate	alveolar
+dd	dd	dː	geminate of d		ita	plosive	alveolar
+bb	bb	bː	geminate of b		ita	plosive	bilabial
+ai	ai	ai	diphthong		ita	diphthong	lowfront>fronthigh
+2:	2:	øː	lengthened front half closed rounded vowel	Höhle	deu	vowel	midfront
+Z	Z	ʒ	voiced postalveolar fricative	(French) jour, (English) pleasure	xxx	fricative	post-alveolar
+z	z	z	voiced alveolar fricative	(English) zoo, (German) See	xxx	fricative	alveolar
+w	w	w	labial-velar approximant	(English) we, (French) oui	xxx	approximant	labio-velar
+v	v	v	voiced labiodental fricative	(English) voice, (German) Welt	xxx	fricative	labio-dental
+u	u	u	back closed rounded vowel	(English) soon, (Spanish) tú, (French) goût, (German) Hut, Mutter, (Italian) azzurro,tutto	xxx	vowel	highback
+T	T	θ	voiceless dental fricative	(English) thing, (Castilian Spanish) caza	xxx	fricative	dental
+t	t	t	voiceless alveolar plosive	(English) two, (Spanish) toma	xxx	plosive	alveolar
+S	S	ʃ	voiceless postalveolar fricative	(English) she, (French) chemin	xxx	fricative	post-alveolar
+s	s	s	voiceless alveolar fricative	(English) see, (Spanish) sí	xxx	fricative	alveolar
+r	r	r	alveolar trill	(Spanish) perro	xxx	trill	alveolar
+p	p	p	voiceless bilabial plosive	(English) pen	xxx	plosive	bilabial
+O	O	ɔ	back half open rounded vowel	British (English) law, caught, (Italian) cosa, (Catalan) dona, (Spanish) ojo, (German) Wort	xxx	vowel	midback
+o	o	o	back half closed rounded vowel	US (English) sore, Scottish English boat, (Spanish) yo, (French) beau, (German) Sohle, (Italian) dove, (Catalan) ona	xxx	vowel	midback
+N	N	ŋ	velar nasal	(English) ring, (Italian) bianco, (Tagalog) ngayón	xxx	nasal	velar
+n	n	n	alveolar nasal	(English), (Spanish) and (Italian) no	xxx	nasal	alveolar
+m	m	m	bilabial nasal	(English) man	xxx	nasal	bilabial
+L	L	ʎ	palatal lateral approximant	(Italian) aglio, (Catalan) colla,	xxx	lateral-approximant	palatal
+l	l	l	alveolar lateral approximant	(English) left, (Spanish) largo	xxx	lateral-approximant	alveolar
+k	k	k	voiceless velar plosive	(English) skill	xxx	plosive	velar
+J	J	ɲ	palatal nasal	(Spanish) año, (French) oignon	xxx	nasal	palatal
+j	j	j	palatal approximant	(English) yes, (French) yeux	xxx	approximant	palatal
+i	i	i	front closed unrounded vowel	(English) see, (Spanish) sí, (French) vite, (German) mi.e.ten, (Italian) visto	xxx	vowel	highfront
+g	g	ɡ	voiced velar plosive	(English) go	xxx	plosive	velar
+f	f	f	voiceless labiodental fricative	(English) fool, (Spanish) and (Italian) falso	xxx	fricative	labio-dental
+E	E	ɛ	front half open unrounded vowel	(English) bed, (French) même, (German) Herr, Männer, (Italian) ferro, (Catalan) mes, (Spanish) perro	xxx	vowel	midfront
+e	e	e	front half closed unrounded vowel	US (English) bear, (Spanish) él, (French) année, (German) mehr, (Italian) rete, (Catalan) més	xxx	vowel	midfront
+D	D	ð	voiced dental fricative	(English) this	xxx	fricative	dental
+d	d	d	voiced alveolar plosive	(English) do, (Italian) cade	xxx	plosive	alveolar
+b	b	b	voiced bilabial plosive	(English) but	xxx	plosive	bilabial
+a	a	a	central open vowel	(Spanish) da, barra, (French) bateau,lac, (German) Haar, (Italian) pazzo	xxx	vowel	lowfront
+#	#	(...)	inter-word silence (optional)		xxx	silence	silence
+@	@	ə	central neutral unrounded vowel	(English) about, winner,(German) bitte	xxx	vowel	midcentral
+?	?	ʔ	glottal stop	(German) Verein, (Danish) stød	xxx	plosive	glottal
+>	>	(...)	recording trailing silence (optional)		xxx	silence	silence
+<	<	(...)	recording initial silence (optional)		xxx	silence	silence
+% ----------------------------------------------------------------------------------------
+% MAUS Parameter Set for ITALIAN
+% 
+% This PARAM set can be used to apply MAUS to Italian input. 
+% 
+% HMM sets:
+% 
+% 1. isoreesthmm_ITALIAN.mmf :
+% Acoustic models are mapped to models trained on German. 
+% The inventar follows the standard SAMPA inventar for Italian.
+% Geminates are modelled by single acoustical models, since geminates 
+% dominatly change the length of the phoneme only in Italian.
+% e.g.  /dd/  is modelled by /d/
+% but in the result one segment named /dd/ is produced.
+% /r/ is modelled by /d/ (tap) and /rr/ by /r/.
+% The following phoneme symbols have been added to allow a rudimentary
+% handling of French, German and English forein words:
+% English : aI aU eI OI @U T D @
+% French  : e~ E~ a~ o~ @
+% German  : y: 2: Y 9 6 @
+% 
+% 2. CLIPS_MT.mmf (default) :
+% HInit training on manually labelled part of the CLIPS Map Task 
+% corpus. Thanks to Francesco Cutugno and his colleagues.
+% Italian SAM-PA Italian set with extensions:
+% English : T D @
+% French  : e~ E~ a~ o~ @
+% German  : ? y: 2: @
+% Some glide-vowel combinations/diphthongs, since they were labelled and 
+% segmented as such in the CLIPS corpus (and they mostly make sense):
+% ue,oi,Oi,oE,io,ei,Ei,ai,ja,jo,ju,wa,we,wi,wO
+% This can be a problem if you want MAUS to segment for instance /wi/
+% in two segments /w i/. In this case try to insert a blank into the 
+% input KAN tier, e.g. 'sedj a'.
+% Furthermore the phoneme set contains not only the standard plosives 
+% (e.g. /d/) and their geminates (e.g. /dd/) but also models for 
+% closure and release for each plosive (e.g. /d_cl/ and /d_rl/). 
+% However note that the Italian rule set (see below) will not deal with these
+% closure/release models (there are no rules for these) and simply pass 
+% them through.
+% After a major re-work og the MT part of CLIPS in Dec 2013 where tons of errors were
+% fixed we ran a new HMM training on CLIPS (20131227). Unfortunately the 
+% results did not improve but rather deteriorated (mistery!). Therefore the
+% current HMM version is 20131228, which is effectively the previous version.
+% 
+% Rule sets:
+% 
+% Based on the phonolgical annotation (*.std files) and phonetic annotation 
+% (*.phn files) of the Italian CLIPS Map Task corpus (47341 words), several MAUS rule sets were 
+% trained automatically using the tool maus.learn (no part of the distribution).
+% Depending on pruning level (the minimum number of observed events for a phonological 
+% rule) and smoothing technique (nosmooth : plain rules; smooth : left/right contexts
+% expanded to similar phonemes of Italian) several rule set for Italian MAUS 
+% were created (see below). Since no validation set for ITALIAN exists (yet), we 
+% cannot determine which of these sets are optimal for using Italian MAUS; it 
+% is very likely that this also depends on what kind of input speech the Italian MAUS
+% is applied to (e.g. read speech might require less and more strict rule sets while 
+% spontaneous speech might benefit from larger rule sets). All rule sets handle
+% SAM-PA symbols of Italian only, that is no sub-phoneme events such as /t_cl/ and /t_rl/
+% are treated by the rule sets (if they occur in the input, they are simply passed through 
+% the variant graph generation stage of MAUS): 
+% 
+% ITA.nosmooth.prune4.rul : basic rule set, pruning threshold >4 events (588 rules)
+% ITA.nosmooth.prune10.rul : basic rule set, pruning threshold >10 events (241 rules)
+% ITA.nosmooth.prune20.rul : basic rule set, pruning threshold >20 events (121 rules)
+% ITA.nosmooth.prune50.rul : basic rule set, pruning threshold >50 events (24 rules)
+% ITA.smooth.prune10.rul : context smoothed rule set, pruning threshold >10 events (1787 rules)
+% ITA.smooth.prune20.rul : context smoothed rule set, pruning threshold >20 events (764 rules, default)
+% ITA.smooth.prune50.rul : context smoothed rule set, pruning threshold >50 events (117 rules)
+% 
+% In general increased pruning will make the rules more robust but less coverage. Smooting will
+% transfer the observed events to other left-right contexts; this may result in rules that 
+% make no sense phonologically, but was found to improve the generalisation of the rule set.
+% 
+% The rule set:
+% ITA.nosmooth.noprune.rul (2788 rules)
+% is a collection of all empirical rule events we found in the CLIPS corpus, and can be 
+% used as a starting point to procuded rule sets with differing pruning techniques as the ones
+% listed above. The fourth column gives the total occurance count, e.g. the rule entry
+% 
+% tS,E,n>tS,e,n -0.762140 0.000000 21
+% 
+% means that the replacement of /E/ by /e/ in the context tS _ n
+% was found 21 times in the CLIPS Map Task corpus, and that the 
+% conditional probability P(tS,e,n|tS,E,n) = 0.173.
+% The fifth column is a list of comma-separated source strings of recordings
+% in which the rule was found.
+% 
+% 
+% See also the file USAGE in the top directory of the package.
+% 

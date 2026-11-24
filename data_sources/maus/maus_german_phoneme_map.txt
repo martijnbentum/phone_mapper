@@ -1,0 +1,113 @@
+% This table lists the phonemic symbols recognized by MAUS in the input for language deu-DE. Columns are:
+% MAUS: symbol as recognized by MAUS, SAMPA: original (X-)SAMPA symbol, IPA: corresponding IPA symbol, PHONETICS: phonetic description,
+% EXAMPLES: example words (and/or Language Name), ISO636-3: language code ('xxx' = used in multiple languages),
+% MANNER: phonetic manner, PLACE: place of articulation [optional: acoustic model MAUS uses for this symbol; only in Language Independent Mode].
+% ----------------------------------------------------------------------------------------------------------------------------------------------
+MAUS	SAMPA	IPA	PHONETICS	EXAMPLES	ISO639-3	MANNER	PLACE
+<usb>	<usb>	(..)	human noise, garbage		xxx	noise	noise
+<nib>	<nib>	(.)	noise, non-human		xxx	noise	noise
+<p:>	<p:>	(...)	silence interval (optional)		xxx	silence	silence
+<p>	<p>	(...)	silence interval (non-optional)		xxx	silence	silence
+a:~	a:~	ãː	nasalized lengthened lowcentral open vowel		deu	vowel	lowfront
+E:~	E:~	ɛ̃ː	nasalized lengthened front half open unrounded vowel		deu	vowel	midfront
+o:~	o:~	õː	nasalized lengthened back half closed rounded vowel		deu	vowel	midback
+2:	2:	øː	lengthened front half closed rounded vowel	Höhle	deu	vowel	midfront
+9:	9:	œː	lengthened front half open rounded vowel		nld	vowel	midfront
+e:	e:	eː	lengthened front half closed unrounded vowel	mehr	deu	vowel	midfront
+e~	e~	ẽ	nasalized front half closed unrounded vowel	vin	fra	vowel	midfront
+i:	i:	iː	lengthened front closed unrounded vowel	mieten	deu	vowel	highfront
+E:	E:	ɛː	lengthened front half open unrounded vowel	Mär	deu	vowel	midfront
+E~	E~	ɛ̃	nasalized lengthened front half open unrounded vowel		deu	vowel	midfront
+a:	a:	aː	lengthened central open vowel	Haar	deu	vowel	lowfront
+o:	o:	oː	lengthened back half closed rounded vowel	Sohle	deu	vowel	midback
+o~	o~	õ	nasalized back half closed rounded vowel	bon	fra	vowel	midback
+u:	u:	uː	lengthened back closed rounded vowel	Hut	deu	vowel	highback
+y:	y:	yː	lengthened front closed rounded vowel	Tür	deu	vowel	highfront
+aI	aI	aɪ	diphthong	Bein	deu	diphthong	lowfront>fronthigh
+aU	aU	aʊ	diphthong	Haus	deu	diphthong	lowfront>backhigh
+OY	OY	ɔʏ	diphthong	heulen	deu	diphthong	midback>highfront
+EI	EI	ɛɪ	diphthong	raise	eng	diphthong	midfront>highfront
+@U	@U	əʊ	diphthong	nose	aus	diphthong	midcentral>highback
+a~	a~	ã	nasalized central open vowel	vent	fra	vowel	lowfront
+O~	O~	ɔ̃	nasalized back half open rounded vowel		deu	vowel	midback
+ts	ts	ts	voiceless alveolar affricate	(Italian) calza, (German) zeit	xxx	affricate	alveolar
+tS	tS	tʃ	voiceless postalveolar affricate	(English) chair, (Spanish) mucho	xxx	affricate	post-alveolar
+pf	pf	pf	voiceless labial affricate	(German) Pferd	xxx	affricate	bilabial
+dZ	dZ	dʒ	voiced postalveolar affricate	(English) gin, (Italian) giorno	xxx	affricate	post-alveolar
+s	s	s	voiceless alveolar fricative	(English) see, (Spanish) sí	xxx	fricative	alveolar
+n	n	n	alveolar nasal	(English), (Spanish) and (Italian) no	xxx	nasal	alveolar
+9	9	œ	front half open rounded vowel	(French) neuf (hence '9'), (German) Hölle	xxx	vowel	midfront
+6	6	ɐ	central neutral unrounded vowel	(German) besser	xxx	vowel	lowcentral
+2	2	ø	front half closed rounded vowel	(French) deux (hence '2'), (German) Höhle	xxx	vowel	midfront
+p	p	p	voiceless bilabial plosive	(English) pen	xxx	plosive	bilabial
+b	b	b	voiced bilabial plosive	(English) but	xxx	plosive	bilabial
+t	t	t	voiceless alveolar plosive	(English) two, (Spanish) toma	xxx	plosive	alveolar
+T	T	θ	voiceless dental fricative	(English) thing, (Castilian Spanish) caza	xxx	fricative	dental
+d	d	d	voiced alveolar plosive	(English) do, (Italian) cade	xxx	plosive	alveolar
+D	D	ð	voiced dental fricative	(English) this	xxx	fricative	dental
+k	k	k	voiceless velar plosive	(English) skill	xxx	plosive	velar
+g	g	ɡ	voiced velar plosive	(English) go	xxx	plosive	velar
+Q	Q	ɒ	back open rounded vowel	British (English) not, cough	xxx	vowel	lowback
+f	f	f	voiceless labiodental fricative	(English) fool, (Spanish) and (Italian) falso	xxx	fricative	labio-dental
+v	v	v	voiced labiodental fricative	(English) voice, (German) Welt	xxx	fricative	labio-dental
+w	w	w	labial-velar approximant	(English) we, (French) oui	xxx	approximant	labio-velar
+z	z	z	voiced alveolar fricative	(English) zoo, (German) See	xxx	fricative	alveolar
+S	S	ʃ	voiceless postalveolar fricative	(English) she, (French) chemin	xxx	fricative	post-alveolar
+Z	Z	ʒ	voiced postalveolar fricative	(French) jour, (English) pleasure	xxx	fricative	post-alveolar
+C	C	ç	voiceless palatal fricative	(German) Ich	xxx	fricative	palatal
+j	j	j	palatal approximant	(English) yes, (French) yeux	xxx	approximant	palatal
+x	x	x	voiceless velar fricative	(Scottish) loch, (Castilian Spanish) ajo	xxx	fricative	velar
+h	h	h	voiceless glottal fricative	(English) ham, (German) Hand	xxx	fricative	glottal
+m	m	m	bilabial nasal	(English) man	xxx	nasal	bilabial
+N	N	ŋ	velar nasal	(English) ring, (Italian) bianco, (Tagalog) ngayón	xxx	nasal	velar
+l	l	l	alveolar lateral approximant	(English) left, (Spanish) largo	xxx	lateral-approximant	alveolar
+L	L	ʎ	palatal lateral approximant	(Italian) aglio, (Catalan) colla,	xxx	lateral-approximant	palatal
+r	r	r	alveolar trill	(Spanish) perro	xxx	trill	alveolar
+R	R	ʀ	uvular trill	(German) Reich	xxx	trill	uvular
+I	I	ɪ	front closed unrounded vowel, but somewhat more centralised and relaxed, in Polish: mid closed unrounded	(English) city, (German) mit	xxx	vowel	highfront
+i	i	i	front closed unrounded vowel	(English) see, (Spanish) sí, (French) vite, (German) mi.e.ten, (Italian) visto	xxx	vowel	highfront
+E	E	ɛ	front half open unrounded vowel	(English) bed, (French) même, (German) Herr, Männer, (Italian) ferro, (Catalan) mes, (Spanish) perro	xxx	vowel	midfront
+e	e	e	front half closed unrounded vowel	US (English) bear, (Spanish) él, (French) année, (German) mehr, (Italian) rete, (Catalan) més	xxx	vowel	midfront
+a	a	a	central open vowel	(Spanish) da, barra, (French) bateau,lac, (German) Haar, (Italian) pazzo	xxx	vowel	lowfront
+O	O	ɔ	back half open rounded vowel	British (English) law, caught, (Italian) cosa, (Catalan) dona, (Spanish) ojo, (German) Wort	xxx	vowel	midback
+o	o	o	back half closed rounded vowel	US (English) sore, Scottish English boat, (Spanish) yo, (French) beau, (German) Sohle, (Italian) dove, (Catalan) ona	xxx	vowel	midback
+U	U	ʊ	back closed rounded vowel somewhat more centralised and relaxed	(English) put, Buddhist	xxx	vowel	highback
+u	u	u	back closed rounded vowel	(English) soon, (Spanish) tú, (French) goût, (German) Hut, Mutter, (Italian) azzurro,tutto	xxx	vowel	highback
+Y	Y	ʏ	lax [y]	(German) hübsch	xxx	vowel	highfront
+y	y	y	front closed rounded vowel	(French) du, (German) Tür	xxx	vowel	highfront
+@	@	ə	central neutral unrounded vowel	(English) about, winner,(German) bitte	xxx	vowel	midcentral
+<	<	(...)	recording initial silence (optional)		xxx	silence	silence
+>	>	(...)	recording trailing silence (optional)		xxx	silence	silence
+?	?	ʔ	glottal stop	(German) Verein, (Danish) stød	xxx	plosive	glottal
+#	#	(...)	inter-word silence (optional)		xxx	silence	silence
+% ----------------------------------------------------------------------------------------
+% MAUS Parameter Set for language deu-DE (deu-AT, deu-CH)
+% 
+% See also the file USAGE in the top directory of the package.
+% 
+% This is the German language parameter set of MAUS (default). 
+% Acoustic models were trained to the 
+% manually segmented part of the Kiel Corpus of Read Speech.
+% The (default) statistical pronunciation model rml-0.95.rul was trained to the 
+% same corpus by Andreas Kipp [1]; the 'phonological' pronunciation model
+% (= rules without posteriors) regeln9.nrul is based on the meta analysis of B. Wesenick 
+% on a large set of publications regarding German pronunciation variation [2]
+% (5545 re-write rules).
+% 
+% In general we found that the statistical model out-performs the phonological 
+% model. The statistical model contains 90 rules (from 1213) that represent 
+% pronuciation variants that were always observed in the training data, and therefore
+% carry a posterior probability of almost 1, e.g. 
+% 
+% g,@,n,#,?,i:>g,N,#,i: -0.000010 0.000000
+% 
+% 'The word-final syllable /g@n/ is reduced to /gN/ in case that the following 
+% word start with /?i:/. At the same time the glottal stop /?/ is deleted.'
+% 
+% All these 90 rules have a tiny (discounted) probability (p=0.00001) that 
+% the original phonological form is retained. If you do not like these 
+% (corpus-dependent) rules you may delete them from a copy of rml-0.95.rul and 
+% use these altered rule set by means of the MAUS option RULSET=<copyOfRml>
+% 
+% 2019-11-24 : added HMM '<usb>' cloned from '<usb>.ita'
+% 

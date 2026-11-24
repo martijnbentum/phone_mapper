@@ -63,7 +63,7 @@ ipa_to_example_words = _load_json('ipa_to_example_words.json')
 
 def counts(mapper=None):
     '''Return entry counts for the phoneme sets.'''
-    from . import arpabet, baldey, cgn, coolest
+    from . import arpabet, baldey, cgn, coolest, maus
     if not mapper: mapper = Mapper()
     return {
         'ipa_set': len(mapper.ipa_set),
@@ -74,6 +74,8 @@ def counts(mapper=None):
         'baldey_set': len(baldey.baldey_to_ipa),
         'cgn_set': len(cgn.cgn_to_ipa),
         'coolest_set': len(coolest.coolest_to_ipa),
+        'maus_sets': {language: len(table)
+            for language, table in maus.maus_sampa_to_ipa.items()},
     }
 
 

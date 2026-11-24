@@ -1,0 +1,110 @@
+% This table lists the phonemic symbols recognized by MAUS in the input for language pol-PL. Columns are:
+% MAUS: symbol as recognized by MAUS, SAMPA: original (X-)SAMPA symbol, IPA: corresponding IPA symbol, PHONETICS: phonetic description,
+% EXAMPLES: example words (and/or Language Name), ISO636-3: language code ('xxx' = used in multiple languages),
+% MANNER: phonetic manner, PLACE: place of articulation [optional: acoustic model MAUS uses for this symbol; only in Language Independent Mode].
+% ----------------------------------------------------------------------------------------------------------------------------------------------
+MAUS	SAMPA	IPA	PHONETICS	EXAMPLES	ISO639-3	MANNER	PLACE
+<usb>	<usb>	(..)	human noise, garbage		xxx	noise	noise
+<nib>	<nib>	(.)	noise, non-human		xxx	noise	noise
+ts_j	ts'	tsʲ	palatalized voiceless alveolar affricate	c'ma	pol	affricate	alveolar
+<p:>	<p:>	(...)	silence interval (optional)		xxx	silence	silence
+dz_j	dz'	dzʲ	palatalized voiced alveolar affricate	Polish dz'wig	pol	affricate	alveolar
+z_j	z'	zʲ	palatalized voiced alveolar fricative	zbir	pol	fricative	alveolar
+x_j	x'	xʲ	palatalized voiceless velar fricative	hiacynt	pol	fricative	velar
+ts`	ts`	tʂ	retroflex voiceless affricate	cyk	pol	affricate	retroflex
+s_j	s'	sʲ	palatalized voiceless alveolar fricative	syk	pol	fricative	alveolar
+p_j	p'	pʲ	palatalized voiceless bilabial plosive	piasek	pol	plosive	bilabial
+<p>	<p>	(...)	silence interval (non-optional)		xxx	silence	silence
+n_j	n'	nʲ	palatalized alveolar nasal	kon'	pol	nasal	alveolar
+k_j	k'	kʲ	palatalized voiceless velar plosive	kierowca	pol	plosive	velar
+g_j	g'	ɡʲ	palatalized voiced velar plosive	Gienek	pol	plosive	velar
+dz`	dz`	dʐ	retroflex voiced affricate	dzwon	pol	affricate	retroflex
+z`	z`	ʐ	retroflex voiced fricative	żyto	pol	fricative	retroflex
+@U	@U	əʊ	diphthong	nose	aus	diphthong	midcentral>highback
+tS	tS	tʃ	voiceless postalveolar affricate	(English) chair, (Spanish) mucho	xxx	affricate	post-alveolar
+ts	ts	ts	voiceless alveolar affricate	(Italian) calza, (German) zeit	xxx	affricate	alveolar
+s`	s`	ʂ	retroflex voiceless fricative	szyk	pol	fricative	retroflex
+OY	OY	ɔʏ	diphthong	heulen	deu	diphthong	midback>highfront
+o~	o~	õ	nasalized back half closed rounded vowel	bon	fra	vowel	midback
+EI	EI	ɛɪ	diphthong	raise	eng	diphthong	midfront>highfront
+e~	e~	ẽ	nasalized front half closed unrounded vowel	vin	fra	vowel	midfront
+dZ	dZ	dʒ	voiced postalveolar affricate	(English) gin, (Italian) giorno	xxx	affricate	post-alveolar
+dz	dz	dz	voiced alveolar affricate	(Italian) zona	xxx	affricate	alveolar
+aU	aU	aʊ	diphthong	Haus	deu	diphthong	lowfront>backhigh
+aI	aI	aɪ	diphthong	Bein	deu	diphthong	lowfront>fronthigh
+a~	a~	ã	nasalized central open vowel	vent	fra	vowel	lowfront
+9~	9~	ɶ̃	nasalized front half open rounded vowel	brun,neuv	fra	vowel	midfront
+Z	Z	ʒ	voiced postalveolar fricative	(French) jour, (English) pleasure	xxx	fricative	post-alveolar
+z	z	z	voiced alveolar fricative	(English) zoo, (German) See	xxx	fricative	alveolar
+x	x	x	voiceless velar fricative	(Scottish) loch, (Castilian Spanish) ajo	xxx	fricative	velar
+w	w	w	labial-velar approximant	(English) we, (French) oui	xxx	approximant	labio-velar
+v	v	v	voiced labiodental fricative	(English) voice, (German) Welt	xxx	fricative	labio-dental
+u	u	u	back closed rounded vowel	(English) soon, (Spanish) tú, (French) goût, (German) Hut, Mutter, (Italian) azzurro,tutto	xxx	vowel	highback
+T	T	θ	voiceless dental fricative	(English) thing, (Castilian Spanish) caza	xxx	fricative	dental
+t	t	t	voiceless alveolar plosive	(English) two, (Spanish) toma	xxx	plosive	alveolar
+S	S	ʃ	voiceless postalveolar fricative	(English) she, (French) chemin	xxx	fricative	post-alveolar
+s	s	s	voiceless alveolar fricative	(English) see, (Spanish) sí	xxx	fricative	alveolar
+r	r	r	alveolar trill	(Spanish) perro	xxx	trill	alveolar
+p	p	p	voiceless bilabial plosive	(English) pen	xxx	plosive	bilabial
+o	o	o	back half closed rounded vowel	US (English) sore, Scottish English boat, (Spanish) yo, (French) beau, (German) Sohle, (Italian) dove, (Catalan) ona	xxx	vowel	midback
+N	N	ŋ	velar nasal	(English) ring, (Italian) bianco, (Tagalog) ngayón	xxx	nasal	velar
+n	n	n	alveolar nasal	(English), (Spanish) and (Italian) no	xxx	nasal	alveolar
+m	m	m	bilabial nasal	(English) man	xxx	nasal	bilabial
+l	l	l	alveolar lateral approximant	(English) left, (Spanish) largo	xxx	lateral-approximant	alveolar
+k	k	k	voiceless velar plosive	(English) skill	xxx	plosive	velar
+j	j	j	palatal approximant	(English) yes, (French) yeux	xxx	approximant	palatal
+I	I	ɪ	front closed unrounded vowel, but somewhat more centralised and relaxed, in Polish: mid closed unrounded	(English) city, (German) mit	xxx	vowel	highfront
+i	i	i	front closed unrounded vowel	(English) see, (Spanish) sí, (French) vite, (German) mi.e.ten, (Italian) visto	xxx	vowel	highfront
+g	g	ɡ	voiced velar plosive	(English) go	xxx	plosive	velar
+f	f	f	voiceless labiodental fricative	(English) fool, (Spanish) and (Italian) falso	xxx	fricative	labio-dental
+e	e	e	front half closed unrounded vowel	US (English) bear, (Spanish) él, (French) année, (German) mehr, (Italian) rete, (Catalan) més	xxx	vowel	midfront
+D	D	ð	voiced dental fricative	(English) this	xxx	fricative	dental
+d	d	d	voiced alveolar plosive	(English) do, (Italian) cade	xxx	plosive	alveolar
+b	b	b	voiced bilabial plosive	(English) but	xxx	plosive	bilabial
+a	a	a	central open vowel	(Spanish) da, barra, (French) bateau,lac, (German) Haar, (Italian) pazzo	xxx	vowel	lowfront
+#	#	(...)	inter-word silence (optional)		xxx	silence	silence
+?	?	ʔ	glottal stop	(German) Verein, (Danish) stød	xxx	plosive	glottal
+>	>	(...)	recording trailing silence (optional)		xxx	silence	silence
+<	<	(...)	recording initial silence (optional)		xxx	silence	silence
+% ----------------------------------------------------------------------------------------
+% MAUS Parameter Set Polish pol-PL
+% 
+% See also the file USAGE in the top directory of the package.
+% 
+% The supported SAMPA set is based on Wells 1996; the acoustic models (HMM) 
+% are trained on the CLARIN-PL Studio corpus (40 HMM, Trained.lst) and cloned from 
+% other languages (20 HMM, Clone.lst). As usual
+% some foreign phonemes have been added to allow modelling of foreign words:
+% French: 9~,a~,e~,o~
+% English: D,T,EI,@U
+% German: aU,aI,OY
+% 
+% Palatalized consonants are not coded with the (inconsistent) upper comma
+% (e.g. /s'/ in Wells 1996) but rather with the correct diacritic '_j' (e.g. /s_j/).
+% Following Wells and others we use palatalized versions of /s_j,z_j,ts_j,dz_j,n_j/ 
+% rather than some authors who use alveolo-palatal symbols. Since some authors also 
+% are interested in palatalized /x,g,k,p/ we also added /x_j,g_j,k_j,p_j/ to the set. If 
+% you are interested in the complete segment you should use the /*_j/ version 
+% in the BPF input, while if you require maus to separate the consonant from
+% the following palatalisation you should use /*j/.
+% Since there is an ongoing debate about the possible realisations of /S,Z,ts,dZ/ as
+% retroflexes (for instance: 'orthographic <sz> is sometimes realized as a post-alveolar 
+% fricative /S/, sometimes as a retroflex fricative /s`/') we also add the retroflex 
+% (af)fricatives /s`,z`,ts`,dz`/ to the set.
+% 
+% There are several probabilistic rule sets provided for Polish trained on 
+% the CLARIN-PL Studio corpus (approx. 305000 words): 
+% since the corpus was transcribed half-automatically, it is not quite clear 
+% whether the learned rules really model processes in Polish or rather systematic 
+% differences between the phonological form produced by G2P and the way the corpus has been 
+% segmented; however the rule sets look quite reasonable. Setting the default rule set to
+% POLISH.smooth.prune20.rul (531 derived from 136 basic rules with minimum occurance of 20); other                      available rules sets are:
+%            POLISH.smooth.prune5.rul
+%            POLISH.nosmooth.prune5.rul
+%            POLISH.nosmooth.prune20.rul
+%            POLISH.smooth.prune50.rul
+%            POLISH.nosmooth.prune50.rul
+% 
+% The MINNI bigram model was trained on the transcripts of the CLARIN-PL Studio corpus 
+% (approx. 2mio phones). 
+% 

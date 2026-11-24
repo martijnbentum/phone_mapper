@@ -23,6 +23,7 @@ def validate(mapper=None):
     for language, words in mapper.ipa_to_example_words.items():
         problems += [f'example words {language}: unknown ipa {ipa}'
             for ipa in words if ipa not in ipa_to_definition]
+    problems += _check_maus()
     return problems
 
 
@@ -72,6 +73,26 @@ def _check_namespace(namespace, disc_to_ipa):
         if target_domain is not None:
             problems += [f'{label}: unknown {target} symbol {value}'
                 for value in mapping.values() if value not in target_domain]
+    return problems
+
+
+def _check_maus():
+    '''Check each MAUS language table pair; aliases are allowed.
+
+    The IPA values are not checked against ipa_to_definition: MAUS tables
+    list many symbols outside the general IPA set.
+    '''
+    from . import maus
+    problems = []
+    for language in maus.languages:
+        forward = maus.maus_sampa_to_ipa[language]
+        inverse = maus.ipa_to_maus_sampa[language]
+        label = f'maus.{language}'
+        problems += [f'{label}: {symbol} -> {ipa} missing from inverse'
+            for symbol, ipa in forward.items() if ipa not in inverse]
+        problems += [f'{label} inverse: {ipa} -> {symbol} not in forward'
+            for ipa, symbol in inverse.items()
+            if forward.get(symbol) != ipa]
     return problems
 
 
