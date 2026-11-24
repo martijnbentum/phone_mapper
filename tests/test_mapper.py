@@ -1,3 +1,5 @@
+import unicodedata
+
 import pytest
 from phone_mapper import (
     Mapper, counts, ipa_set, ipa_to_definition, show, validate,
@@ -143,7 +145,37 @@ def test_maus_sampa_to_ipa():
     assert maus.maus_sampa_to_ipa['eng']['aI'] == 'aɪ'
     assert maus.maus_sampa_to_ipa['eng']['D'] == 'ð'
     assert maus.maus_sampa_to_ipa['nld']['EI'] == 'ɛɪ'
-    assert maus.maus_sampa_to_ipa['hun']['d_j'] == 'dʲ'
+
+
+def test_maus_corrections():
+    assert maus.bas_maus_sampa_to_ipa['eng']['R'] == 'ʀ'
+    assert maus.maus_sampa_to_ipa['eng']['R'] == 'ɹ'
+    assert maus.maus_sampa_to_ipa['spa']['r'] == 'ɾ'
+    assert maus.maus_sampa_to_ipa['spa']['rr'] == 'r'
+    assert maus.bas_maus_sampa_to_ipa['hun']['d_j'] == 'dʲ'
+    assert maus.maus_sampa_to_ipa['hun']['d_j'] == 'ɟ'
+    assert maus.maus_sampa_to_ipa['pol']['ts_j'] == 't͡ɕ'
+
+
+def test_maus_additions():
+    assert '@`' not in maus.bas_maus_sampa_to_ipa['eng']
+    assert maus.maus_sampa_to_ipa['eng']['@`'] == 'ɚ'
+    assert '6_^' not in maus.bas_maus_sampa_to_ipa['deu']
+    assert maus.maus_sampa_to_ipa['deu']['6_^'] == 'ɐ\u032f'
+
+
+def test_maus_normalised_notation():
+    assert maus.maus_sampa_to_ipa['eng']['tS'] == 't͡ʃ'
+    assert maus.maus_sampa_to_ipa['deu']['ts'] == 't͡s'
+    assert maus.maus_sampa_to_ipa['eng']['@~'] == 'ə\u0303'
+    assert maus.maus_sampa_to_ipa['fra']['a~'] == 'ɑ\u0303'
+
+
+def test_maus_dutch_matches_bas():
+    # Dutch must match the WebMAUS IPA used for CGN: no corrections
+    bas = maus.bas_maus_sampa_to_ipa['nld']
+    for symbol, ipa in maus.maus_sampa_to_ipa['nld'].items():
+        assert unicodedata.normalize('NFC', bas[symbol]) == ipa
 
 
 def test_maus_is_language_specific():

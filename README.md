@@ -53,14 +53,23 @@ ISO 639-3 code (`nld`, `eng`, `fra`, `deu`, `hun`, `ita`, `pol`, `spa`):
 from phone_mapper import maus
 
 maus.maus_sampa_to_ipa['eng']['aI']    # 'aɪ'
-maus.maus_sampa_to_ipa['hun']['d_j']   # 'dʲ'
+maus.maus_sampa_to_ipa['spa']['r']     # 'ɾ' (tap; BAS table says r)
+maus.maus_sampa_to_ipa['eng']['tS']    # 't͡ʃ'
 maus.maus_sampa_to_ipa['nld']['<p:>']  # '(...)' (pause)
 maus.ipa_to_maus_sampa['nld']['(...)'] # '<p:>'
+maus.bas_maus_sampa_to_ipa['spa']['r'] # 'r' (BAS table as published)
 ```
 
 Keys are MAUS symbols, which are not always strict SAMPA (`d_j` where
 SAMPA writes `d'`). English merges the us, gb, au, nz and sc variant
 tables, which agree on every shared symbol.
+
+The BAS tables give each symbol's generic IPA across languages (`R` is
+always the uvular trill). `maus_sampa_to_ipa` applies reviewed
+per-language corrections (`data_sources/maus/corrections_<iso>.tsv`, each
+with example words from Common Voice alignments) and normalises notation:
+NFC, tie bars on affricates, palatalisation before length. Dutch has no
+corrections, so it matches the WebMAUS IPA output used for CGN.
 
 Module-level helpers:
 

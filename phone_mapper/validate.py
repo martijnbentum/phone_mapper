@@ -87,7 +87,10 @@ def _check_maus():
     for language in maus.languages:
         forward = maus.maus_sampa_to_ipa[language]
         inverse = maus.ipa_to_maus_sampa[language]
+        bas = maus.bas_maus_sampa_to_ipa[language]
         label = f'maus.{language}'
+        if not set(bas) <= set(forward):
+            problems.append(f'{label}: BAS symbols missing from the table')
         problems += [f'{label}: {symbol} -> {ipa} missing from inverse'
             for symbol, ipa in forward.items() if ipa not in inverse]
         problems += [f'{label} inverse: {ipa} -> {symbol} not in forward'
